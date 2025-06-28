@@ -1,0 +1,82 @@
+name: Deploy pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Setup @antfu/ni
+        run: npm i -g @antfu/ni
+
+      - name: Install dependencies
+        run: nci
+        working-directory: ./slides
+
+      - name: Build all presentations
+        run: |
+          echo "Building all markdown presentations..."
+          echo "Available .md files:"
+          ls -la *.md
+          echo "Building client-side-tech.md specifically..."
+          nr build client-side-tech.md --base /${{github.event.repository.name}}/
+          echo "Build completed with exit code: $?"
+        working-directory: ./slides
+
+      - name: Debug - Check build output and structure
+        run: |
+          echo "=== Build completed, checking slides directory ==="
+          ls -la slides/
+          echo "=== Looking for dist directory in slides ==="
+          find slides/ -name "dist" -type d 2>/dev/null || echo "No dist directory found in slides/"
+          echo "=== Contents of dist directory ==="
+          ls -la slides/dist/ 2>/dev/null || echo "Cannot list dist contents"
+          echo "=== Recursive listing of dist directory ==="
+          find slides/dist/ -type f 2>/dev/null || echo "No files found in dist"
+          echo "=== Check for HTML files specifically ==="
+          find slides/dist/ -name "*.html" 2>/dev/null || echo "No HTML files found"
+          echo "=== Contents of any subdirectories in dist ==="
+          for dir in slides/dist/*/; do
+            if [ -d "$dir" ]; then
+              echo "Contents of $dir:"
+              ls -la "$dir"
+            fi
+          done
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: slides/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
