@@ -37,30 +37,9 @@ jobs:
           echo "Building all markdown presentations..."
           echo "Available .md files:"
           ls -la *.md
-          echo "Building client-side-tech.md specifically..."
           nr build client-side-tech.md --base /${{github.event.repository.name}}/
           echo "Build completed with exit code: $?"
         working-directory: ./slides
-
-      - name: Debug - Check build output and structure
-        run: |
-          echo "=== Build completed, checking slides directory ==="
-          ls -la slides/
-          echo "=== Looking for dist directory in slides ==="
-          find slides/ -name "dist" -type d 2>/dev/null || echo "No dist directory found in slides/"
-          echo "=== Contents of dist directory ==="
-          ls -la slides/dist/ 2>/dev/null || echo "Cannot list dist contents"
-          echo "=== Recursive listing of dist directory ==="
-          find slides/dist/ -type f 2>/dev/null || echo "No files found in dist"
-          echo "=== Check for HTML files specifically ==="
-          find slides/dist/ -name "*.html" 2>/dev/null || echo "No HTML files found"
-          echo "=== Contents of any subdirectories in dist ==="
-          for dir in slides/dist/*/; do
-            if [ -d "$dir" ]; then
-              echo "Contents of $dir:"
-              ls -la "$dir"
-            fi
-          done
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
