@@ -4,11 +4,11 @@
 
 ## What is Internet & How it Started?
 
+- ARPA (Advanced Research Projects Agency) & ARPANET 1969
+- To connects American universities and research institutions.
 - Internet is simply a wire and any two computers connected to it can communicate.
   - Internet is actually a network of networks.
 - Internet is not WWW (World Wide Web)
-- ARPA (Advanced Research Projects Agency) & ARPANET 1969
-- To connects American universities and research institutions.
 
 <!--
 
@@ -35,17 +35,17 @@ Cold War Era
 <div class="text-2xl mb-3">Steps:</div>
 
 1. User Enters the URL
-2. Domain Name System (DNS) Resolution
-3. Establishing a Connection
-4. Sending the HTTP Request
-5. Server Receives and Processes the Request
-6. Backend Processing (Optional)
-7. Generating the Response
-8. Sending the HTTP Response
-9. Receiving the Response
-10. HTML Parsing and Resource Requests
-11. The Rendering Engine
-12. GPU Processing and Display
+2. <span v-click>Domain Name System (DNS) Resolution</span>
+3. <span v-click>Establishing a Connection</span>
+4. <span v-click>Sending the HTTP Request</span>
+5. <span v-click>Server Receives and Processes the Request</span>
+6. <span v-click>Backend Processing (Optional)</span>
+7. <span v-click>Generating the Response</span>
+8. <span v-click>Sending the HTTP Response</span>
+9. <span v-click>Receiving the Response</span>
+10. <span v-click>HTML Parsing and Resource Requests</span>
+11. <span v-click>The Rendering Engine</span>
+12. <span v-click>GPU Processing and Display</span>
 
 > <a href="../other/client-side-tech/PDFs/req-res-lifecycle.pdf" target="_blank">PDF of the steps in details</a>
 
