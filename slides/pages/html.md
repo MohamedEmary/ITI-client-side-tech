@@ -28,7 +28,43 @@
 
 ## Basic HTML Document Structure
 
-```html
+````md magic-move {lines: true}
+```html {*}
+<!DOCTYPE html>
+```
+
+```html {*|2-3}
+<!DOCTYPE html>
+<html></html>
+```
+
+```html {*|3}
+<!DOCTYPE html>
+<html>
+  <head></head>
+</html>
+```
+
+```html {*|4}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+</html>
+```
+
+```html {*|6-8}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body></body>
+</html>
+```
+
+```html {*|7}
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,8 +75,31 @@
   </body>
 </html>
 ```
+````
 
 <img src="../assets/images/page-structure.png" class="m-auto w-[45%] mt-4" alt="HTML Page Structure"/>
+
+<!--
+
+**Example of what can go wrong:**
+
+Imagine you have a webpage with the following content:
+
+```html
+<p>¡Hola, Mundo!</p>
+<p>This costs €50.</p>
+<p>I ❤️ HTML.</p>
+```
+
+If the browser fails to correctly identify the character set as UTF-8, it might default to an older, more limited encoding like `ISO-8859-1` (also known as Latin-1). In such a case, the output could look something like this:
+
+```
+Â¡Hola, Mundo!
+This costs â‚¬50.
+I â&#157;¤ï¸&#143; HTML.
+```
+
+-->
 
 ---
 
@@ -83,9 +142,34 @@
 - Italic: `<i>`, `<em>`
 - Underline: `<u>`
 - Superscript: `<sup>`, Subscript: `<sub>`
-- Lists: `<ul>`, `<ol>`, `<li>`, `<dl>`, `<dt>`, `<dd>`
+- Lists: `<ul>`, `<ol>`, `<li>`
 
-```html
+````md magic-move {lines: true}
+```html {*}
+<p>This is plain text</p>
+```
+
+```html {*|1}
+<p><strong>Bold text</strong></p>
+```
+
+```html {*|1}
+<p><strong>Bold</strong> and <em>italic</em></p>
+```
+
+```html {*|1}
+<p><strong>Bold</strong> and <em>italic</em> and <u>underline</u></p>
+```
+
+```html {*|2-5}
+<p><strong>Bold</strong> and <em>italic</em> and <u>underline</u></p>
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+```
+
+```html {*|6-9}
 <p><strong>Bold</strong> and <em>italic</em> and <u>underline</u></p>
 <ul>
   <li>Item 1</li>
@@ -96,6 +180,7 @@
   <li>Second</li>
 </ol>
 ```
+````
 
 ---
 
@@ -135,12 +220,6 @@ Add a link to your favorite website. Make it open in a new tab. Below it, add a 
 <img src="./images/profile.jpg" alt="Profile Photo" />
 <video src="movie.mp4" controls></video>
 <audio src="sound.mp3" controls></audio>
-<!-- YouTube embed example -->
-<iframe
-  width="300"
-  height="200"
-  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-  allowfullscreen></iframe>
 ```
 
 ---
@@ -168,7 +247,7 @@ Insert an image of your favorite place. Add a short alt description. (Optional: 
 ### HTML Entities
 
 - Used to display reserved characters (e.g., `<`, `>`, `&`, `"`, `©`)
-- Example: `&lt;`, `&gt;`, `&amp;`, `&quot;`, `&copy;`
+- Example: `&lt;`, `&gt;`, `&copy;`
 
 ```html
 <p>&lt;div&gt; is a block element.</p>
@@ -220,7 +299,119 @@ Insert an image of your favorite place. Add a short alt description. (Optional: 
 
 ---
 
-```html
+````md magic-move {lines: true}
+```html {*}
+<table></table>
+```
+
+```html {*|2-4}
+<table>
+  <caption>
+    Front-end web developer course 2021
+  </caption>
+</table>
+```
+
+```html {*|5-7}
+<table>
+  <caption>
+    Front-end web developer course 2021
+  </caption>
+  <thead></thead>
+</table>
+```
+
+```html {*|6-10}
+<table>
+  <caption>
+    Front-end web developer course 2021
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Person</th>
+      <th scope="col">Most interest in</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+</table>
+```
+
+```html {*|11-13}
+<table>
+  <caption>
+    Front-end web developer course 2021
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Person</th>
+      <th scope="col">Most interest in</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+```
+
+```html {*|13-17}
+<table>
+  <caption>
+    Front-end web developer course 2021
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Person</th>
+      <th scope="col">Most interest in</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Chris</th>
+      <td>HTML tables</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+```html {*|18-27}
+<table>
+  <caption>
+    Front-end web developer course 2021
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Person</th>
+      <th scope="col">Most interest in</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Chris</th>
+      <td>HTML tables</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th scope="row">Dennis</th>
+      <td>Web accessibility</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th scope="row">Sarah</th>
+      <td>JavaScript frameworks</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th scope="row">Karen</th>
+      <td>Web performance</td>
+      <td>36</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+```html {*|29-35}
 <table>
   <caption>
     Front-end web developer course 2021
@@ -262,6 +453,7 @@ Insert an image of your favorite place. Add a short alt description. (Optional: 
   </tfoot>
 </table>
 ```
+````
 
 ---
 
@@ -278,7 +470,69 @@ Create a table with two columns: "Country" and "Capital". Add three rows for dif
 - Labels: `<label>`, Textarea: `<textarea>`, Select: `<select>`
 - Submit button: `<button type="submit">`
 
-```html
+````md magic-move {lines: true}
+```html {*}
+<form></form>
+```
+
+```html {*|1}
+<form action="#" method="post"></form>
+```
+
+```html {*|2-4}
+<form action="#" method="post">
+  <fieldset></fieldset>
+</form>
+```
+
+```html {*|3}
+<form action="#" method="post">
+  <fieldset>
+    <legend>Contact Form</legend>
+  </fieldset>
+</form>
+```
+
+```html {*|4-6}
+<form action="#" method="post">
+  <fieldset>
+    <legend>Contact Form</legend>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+  </fieldset>
+</form>
+```
+
+```html {*|6-8}
+<form action="#" method="post">
+  <fieldset>
+    <legend>Contact Form</legend>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+    <br />
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" />
+  </fieldset>
+</form>
+```
+
+```html {*|9-11}
+<form action="#" method="post">
+  <fieldset>
+    <legend>Contact Form</legend>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+    <br />
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" />
+    <br />
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+  </fieldset>
+</form>
+```
+
+```html {*|12-13}
 <form action="#" method="post">
   <fieldset>
     <legend>Contact Form</legend>
@@ -295,6 +549,7 @@ Create a table with two columns: "Country" and "Capital". Add three rows for dif
   </fieldset>
 </form>
 ```
+````
 
 ---
 
