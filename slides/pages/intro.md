@@ -4,6 +4,8 @@
 
 ## What is Internet & How it Started?
 
+- Internet is simply a wire and any two computers connected to it can communicate.
+  - Internet is actually a network of networks.
 - Internet is not WWW (World Wide Web)
 - ARPA (Advanced Research Projects Agency) & ARPANET 1969
 - To connects American universities and research institutions.
@@ -24,33 +26,58 @@ Cold War Era
 
 ---
 
-## How the Internet Works in 5 Minutes
+## Request/Response Life Cycle
 
-<!-- Start the vid at 46s -->
-
-<Youtube id="7_LPdttKXPc" width="70%" height="70%" class="m-auto mt-4" />
+<Youtube id="hWyBeEF3CqQ" width="70%" height="70%" class="m-auto mt-4" />
 
 ---
 
-### Sending/Receiving Data
+<div class="text-2xl mb-3">Steps:</div>
 
-<img src="../assets/images/how-internet-works.png" class="m-auto w-[60%] mt-4" alt="How internet works"/>
+1. User Enters the URL
+2. Domain Name System (DNS) Resolution
+3. Establishing a Connection
+4. Sending the HTTP Request
+5. Server Receives and Processes the Request
+6. Backend Processing (Optional)
+7. Generating the Response
+8. Sending the HTTP Response
+9. Receiving the Response
+10. HTML Parsing and Resource Requests
+11. The Rendering Engine
+12. GPU Processing and Display
+
+<!--
+BE processing for things like:
+
+- Querying DB
+- Call other services like recommendation engines or advertising services
+
+========================================
+
+Req contains:
+
+- Status code
+- Header
+- Body
+
+
+Show them response data in browser network tab
+
+========================================
+
+Display images for the tree structure of CSSOM and DOM
+
+Req header includes things like: 
+
+- user-agent
+- cookies
+- caching header
+-->
 
 ---
 
-### Dividing Data Into Packets
-
-<img src="../assets/images/packets.png" class="m-auto w-[60%] mt-4" alt="packets"/>
-
----
-
-### Routing Packets
-
-<img src="../assets/images/routing-packets.png" class="m-auto w-[60%] mt-4" alt="routing packets"/>
-
----
-
-## How DNS Request Works
+## How DNS Works
 
 <!-- Start the vid at 45s -->
 
@@ -84,29 +111,6 @@ Any address there takes precedence over DNS lookups.
 
 - Windows hosts file `C:\Windows\System32\drivers\etc\hosts`
 - Linux hosts file `/etc/hosts`
-
----
-
-## Request/Response Life Cycle
-
-<Youtube id="hWyBeEF3CqQ" width="70%" height="70%" class="m-auto mt-4" />
-
----
-
-<div class="text-2xl mb-3">Steps:</div>
-
-1. User Enters the URL
-2. Domain Name System (DNS) Resolution
-3. Establishing a Connection
-4. Sending the HTTP Request
-5. Server Receives and Processes the Request
-6. Backend Processing (Optional)
-7. Generating the Response
-8. Sending the HTTP Response
-9. Receiving the Response
-10. HTML Parsing and Resource Requests
-11. The Rendering Engine
-12. GPU Processing and Display
 
 <!--
 ## TCP/IP
