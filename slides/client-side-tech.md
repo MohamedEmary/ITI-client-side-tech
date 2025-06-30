@@ -41,6 +41,10 @@ mdc: true
   /* .slidev-layout{
     overflow: scroll
   } */
+
+  blockquote{
+    margin-top: 10px;
+  }
 </style>
 
 <div class="text-5xl">Client Side Technologies</div>

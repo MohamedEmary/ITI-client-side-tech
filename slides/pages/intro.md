@@ -47,6 +47,8 @@ Cold War Era
 11. The Rendering Engine
 12. GPU Processing and Display
 
+> <a href="../other/client-side-tech/PDFs/req-res-lifecycle.pdf" target="_blank">PDF of the steps in details</a>
+
 <!--
 BE processing for things like:
 
@@ -68,7 +70,7 @@ Show them response data in browser network tab
 
 Display images for the tree structure of CSSOM and DOM
 
-Req header includes things like: 
+Req header includes things like:
 
 - user-agent
 - cookies
