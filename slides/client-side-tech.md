@@ -28,6 +28,10 @@ mdc: true
     max-height: 100%;
     overflow: scroll;
   }
+  
+  pre *{
+    font-size: 16px !important;
+  }
 
   p, li, h1, h2, h3, h4, h5, h6{
     user-select: all !important;
