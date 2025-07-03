@@ -9,13 +9,13 @@
 - In 1998, the [W3C](https://www.w3.org/) took over HTML development, focusing on web standards.
 - **HTML5** was finalized in 2014, introducing modern features for multimedia, graphics, and APIs.
 
-<a target="_blank" href="https://en.wikipedia.org/wiki/Tim_Berners-Lee"><img src="../assets/images/Tim-Berners-Lee.png" class="m-auto w-[30%] mt-4" alt="Tim Berners-Lee"/></a>
+<a target="_blank" href="https://en.wikipedia.org/wiki/Tim_Berners-Lee"><img src="../assets/images/html/Tim-Berners-Lee.png" class="m-auto w-[30%] mt-4" alt="Tim Berners-Lee"/></a>
 
 ---
 
 - The first web page ever created by Tim Berners-Lee.:
 
-<a target="_blank" href="https://www.w3.org/History/19921103-hypertext/hypertext/WWW/TheProject.html"><img src="../assets/images/first-web-page.png" class="m-auto w-[100%] mt-4" alt="The World Wide Web project (1991)"/></a>
+<a target="_blank" href="https://www.w3.org/History/19921103-hypertext/hypertext/WWW/TheProject.html"><img src="../assets/images/html/first-web-page.png" class="m-auto w-[100%] mt-4" alt="The World Wide Web project (1991)"/></a>
 
 ---
 
@@ -41,43 +41,46 @@
 ```html {*|3}
 <!DOCTYPE html>
 <html>
-  <head></head>
+    <head></head>
 </html>
 ```
 
-```html {*|4}
+```html {*|4-5}
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Page Title</title>
-  </head>
-</html>
-```
-
-```html {*|6-8}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Page Title</title>
-  </head>
-  <body></body>
+    <head>
+        <title>Page Title</title>
+        <meta charset="UTF-8" />
+    </head>
 </html>
 ```
 
 ```html {*|7}
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Page Title</title>
-  </head>
-  <body>
-    <!-- Content goes here -->
-  </body>
+    <head>
+        <title>Page Title</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body></body>
+</html>
+```
+
+```html {*|8|*}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <!-- Content goes here -->
+    </body>
 </html>
 ```
 ````
 
-<img src="../assets/images/page-structure.png" class="m-auto w-[45%] mt-4" alt="HTML Page Structure"/>
+<img src="../assets/images/html/page-structure.png" class="m-auto w-[40%] mt-4" alt="HTML Page Structure"/>
 
 <!--
 
@@ -86,9 +89,7 @@
 Imagine you have a webpage with the following content:
 
 ```html
-<p>¡Hola, Mundo!</p>
-<p>This costs €50.</p>
-<p>I ❤️ HTML.</p>
+<p>Mpape امبابي 🐢</p>
 ```
 
 If the browser fails to correctly identify the character set as UTF-8, it might default to an older, more limited encoding like `ISO-8859-1` (also known as Latin-1). In such a case, the output could look something like this:
@@ -164,29 +165,29 @@ I â&#157;¤ï¸&#143; HTML.
 ```html {*|2-5}
 <p><strong>Bold</strong> and <em>italic</em> and <u>underline</u></p>
 <ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
+    <li>Item 1</li>
+    <li>Item 2</li>
 </ul>
 ```
 
 ```html {*|6-9}
 <p><strong>Bold</strong> and <em>italic</em> and <u>underline</u></p>
 <ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
+    <li>Item 1</li>
+    <li>Item 2</li>
 </ul>
 <ol>
-  <li>First</li>
-  <li>Second</li>
+    <li>First</li>
+    <li>Second</li>
 </ol>
 ```
 ````
 
----
+<!-- ---
 
 ### Exercise: Text Formatting
 
-Create a short paragraph about your favorite food. Make the food name bold, add an italic description, and use an unordered list for at least two ingredients.
+Create a short paragraph about your favorite food. Make the food name bold, add an italic description, and use an unordered list for at least two ingredients. -->
 
 ---
 
@@ -201,11 +202,11 @@ Create a short paragraph about your favorite food. Make the food name bold, add 
 <a href="about.html">About Us</a>
 ```
 
----
+<!-- ---
 
 ### Exercise: Links & Navigation
 
-Add a link to your favorite website. Make it open in a new tab. Below it, add a link to a local file called `contact.html`.
+Add a link to your favorite website. Make it open in a new tab. Below it, add a link to a local file called `contact.html`. -->
 
 ---
 
@@ -214,7 +215,6 @@ Add a link to your favorite website. Make it open in a new tab. Below it, add a 
 - Images: `<img src="path" alt="description">`
 - Video: `<video src="movie.mp4" controls></video>`
 - Audio: `<audio src="sound.mp3" controls></audio>`
-- Embedding content: `<iframe src="url"></iframe>`
 
 ```html
 <img src="./images/profile.jpg" alt="Profile Photo" />
@@ -222,11 +222,11 @@ Add a link to your favorite website. Make it open in a new tab. Below it, add a 
 <audio src="sound.mp3" controls></audio>
 ```
 
----
+<!-- ---
 
 ### Exercise: Images & Media
 
-Insert an image of your favorite place. Add a short alt description. (Optional: Embed a YouTube video about that place.)
+Insert an image of your favorite place. Add a short alt description. (Optional: Embed a YouTube video about that place.) -->
 
 ---
 
@@ -240,7 +240,7 @@ Insert an image of your favorite place. Add a short alt description. (Optional: 
 <span>This is an inline element</span>
 ```
 
-<img src="../assets/images/block-inline.png" class="m-auto w-[60%] mt-4" alt="Block vs Inline Elements"/>
+<img src="../assets/images/html/block-inline.png" class="m-auto w-[60%] mt-4" alt="Block vs Inline Elements"/>
 
 ---
 
@@ -252,18 +252,6 @@ Insert an image of your favorite place. Add a short alt description. (Optional: 
 ```html
 <p>&lt;div&gt; is a block element.</p>
 <p>Copyright &copy; 2025</p>
-```
-
----
-
-### Comments and Whitespace
-
-- Comments: `<!-- This is a comment -->`
-- Whitespace in HTML is generally ignored, but use indentation for readability
-
-```html
-<!-- This is a comment -->
-<p>This has extra spaces.</p>
 ```
 
 ---
@@ -306,160 +294,160 @@ Insert an image of your favorite place. Add a short alt description. (Optional: 
 
 ```html {*|2-4}
 <table>
-  <caption>
-    Front-end web developer course 2021
-  </caption>
+    <caption>
+        Client-Side Technologies Course @ ITI
+    </caption>
 </table>
 ```
 
-```html {*|5-7}
+```html {*|5}
 <table>
-  <caption>
-    Front-end web developer course 2021
-  </caption>
-  <thead></thead>
+    <caption>
+        Client-Side Technologies Course @ ITI
+    </caption>
+    <thead></thead>
 </table>
 ```
 
 ```html {*|6-10}
 <table>
-  <caption>
-    Front-end web developer course 2021
-  </caption>
-  <thead>
-    <tr>
-      <th scope="col">Person</th>
-      <th scope="col">Most interest in</th>
-      <th scope="col">Age</th>
-    </tr>
-  </thead>
+    <caption>
+        Client-Side Technologies Course @ ITI
+    </caption>
+    <thead>
+        <tr>
+            <th scope="col">Person</th>
+            <th scope="col">Most interest in</th>
+            <th scope="col">Age</th>
+        </tr>
+    </thead>
 </table>
 ```
 
-```html {*|11-13}
+```html {*|12}
 <table>
-  <caption>
-    Front-end web developer course 2021
-  </caption>
-  <thead>
-    <tr>
-      <th scope="col">Person</th>
-      <th scope="col">Most interest in</th>
-      <th scope="col">Age</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
+    <caption>
+        Client-Side Technologies Course @ ITI
+    </caption>
+    <thead>
+        <tr>
+            <th scope="col">Person</th>
+            <th scope="col">Most interest in</th>
+            <th scope="col">Age</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
 </table>
 ```
 
 ```html {*|13-17}
 <table>
-  <caption>
-    Front-end web developer course 2021
-  </caption>
-  <thead>
-    <tr>
-      <th scope="col">Person</th>
-      <th scope="col">Most interest in</th>
-      <th scope="col">Age</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Chris</th>
-      <td>HTML tables</td>
-      <td>22</td>
-    </tr>
-  </tbody>
+    <caption>
+        Client-Side Technologies Course @ ITI
+    </caption>
+    <thead>
+        <tr>
+            <th scope="col">Person</th>
+            <th scope="col">Most interest in</th>
+            <th scope="col">Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Chris</th>
+            <td>HTML tables</td>
+            <td>22</td>
+        </tr>
+    </tbody>
 </table>
 ```
 
-```html {*|18-27}
+```html {*}
 <table>
-  <caption>
-    Front-end web developer course 2021
-  </caption>
-  <thead>
-    <tr>
-      <th scope="col">Person</th>
-      <th scope="col">Most interest in</th>
-      <th scope="col">Age</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Chris</th>
-      <td>HTML tables</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th scope="row">Dennis</th>
-      <td>Web accessibility</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th scope="row">Sarah</th>
-      <td>JavaScript frameworks</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <th scope="row">Karen</th>
-      <td>Web performance</td>
-      <td>36</td>
-    </tr>
-  </tbody>
+    <caption>
+        Client-Side Technologies Course @ ITI
+    </caption>
+    <thead>
+        <tr>
+            <th scope="col">Person</th>
+            <th scope="col">Most interest in</th>
+            <th scope="col">Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Chris</th>
+            <td>HTML tables</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <th scope="row">Dennis</th>
+            <td>Web accessibility</td>
+            <td>45</td>
+        </tr>
+        <tr>
+            <th scope="row">Sarah</th>
+            <td>JavaScript frameworks</td>
+            <td>29</td>
+        </tr>
+        <tr>
+            <th scope="row">Karen</th>
+            <td>Web performance</td>
+            <td>36</td>
+        </tr>
+    </tbody>
 </table>
 ```
 
-```html {*|29-35}
+```html {34-39|*}
 <table>
-  <caption>
-    Front-end web developer course 2021
-  </caption>
-  <thead>
-    <tr>
-      <th scope="col">Person</th>
-      <th scope="col">Most interest in</th>
-      <th scope="col">Age</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Chris</th>
-      <td>HTML tables</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th scope="row">Dennis</th>
-      <td>Web accessibility</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th scope="row">Sarah</th>
-      <td>JavaScript frameworks</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <th scope="row">Karen</th>
-      <td>Web performance</td>
-      <td>36</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th scope="row" colspan="2">Average age</th>
-      <td>33</td>
-    </tr>
-  </tfoot>
+    <caption>
+        Client-Side Technologies Course @ ITI
+    </caption>
+    <thead>
+        <tr>
+            <th scope="col">Person</th>
+            <th scope="col">Most interest in</th>
+            <th scope="col">Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Chris</th>
+            <td>HTML tables</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <th scope="row">Dennis</th>
+            <td>Web accessibility</td>
+            <td>45</td>
+        </tr>
+        <tr>
+            <th scope="row">Sarah</th>
+            <td>JavaScript frameworks</td>
+            <td>29</td>
+        </tr>
+        <tr>
+            <th scope="row">Karen</th>
+            <td>Web performance</td>
+            <td>36</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th scope="row" colspan="2">Average age</th>
+            <td>33</td>
+        </tr>
+    </tfoot>
 </table>
 ```
 ````
 
----
+<!-- ---
 
 ### Exercise: Tables
 
-Create a table with two columns: "Country" and "Capital". Add three rows for different countries.
+Create a table with two columns: "Country" and "Capital". Add three rows for different countries. -->
 
 ---
 
@@ -479,74 +467,74 @@ Create a table with two columns: "Country" and "Capital". Add three rows for dif
 <form action="#" method="post"></form>
 ```
 
+```html {*|2}
+<form action="#" method="post">
+    <fieldset></fieldset>
+</form>
+```
+
 ```html {*|2-4}
 <form action="#" method="post">
-  <fieldset></fieldset>
+    <fieldset>
+        <legend>Contact Form</legend>
+    </fieldset>
 </form>
 ```
 
-```html {*|3}
+```html {*|4-5}
 <form action="#" method="post">
-  <fieldset>
-    <legend>Contact Form</legend>
-  </fieldset>
-</form>
-```
-
-```html {*|4-6}
-<form action="#" method="post">
-  <fieldset>
-    <legend>Contact Form</legend>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" />
-  </fieldset>
+    <fieldset>
+        <legend>Contact Form</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+    </fieldset>
 </form>
 ```
 
 ```html {*|6-8}
 <form action="#" method="post">
-  <fieldset>
-    <legend>Contact Form</legend>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" />
-    <br />
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" />
-  </fieldset>
+    <fieldset>
+        <legend>Contact Form</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+        <br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+    </fieldset>
 </form>
 ```
 
 ```html {*|9-11}
 <form action="#" method="post">
-  <fieldset>
-    <legend>Contact Form</legend>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" />
-    <br />
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" />
-    <br />
-    <label for="message">Message:</label>
-    <textarea id="message" name="message"></textarea>
-  </fieldset>
+    <fieldset>
+        <legend>Contact Form</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+        <br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+        <br />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+    </fieldset>
 </form>
 ```
 
-```html {*|12-13}
+```html {*|12-13|*}
 <form action="#" method="post">
-  <fieldset>
-    <legend>Contact Form</legend>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" />
-    <br />
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" />
-    <br />
-    <label for="message">Message:</label>
-    <textarea id="message" name="message"></textarea>
-    <br />
-    <button type="submit">Send</button>
-  </fieldset>
+    <fieldset>
+        <legend>Contact Form</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+        <br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+        <br />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        <br />
+        <button type="submit">Send</button>
+    </fieldset>
 </form>
 ```
 ````
@@ -560,6 +548,15 @@ Form Attributes:
 - `action`: URL to send form data
 - `method`: HTTP method (GET or POST)
 
+Form Methods:
+
+- `GET`: Used to retrieve data. Appends data to URL (not secure, limited length).
+- `POST`: Sends data in request body (more secure, no length limit)
+- `PUT`: Used to update existing resources.
+- `DELETE`: Used to delete resources.
+
+---
+
 Form Input Attributes:
 
 - `type`: Type of input (text, email, checkbox, etc.)
@@ -569,13 +566,13 @@ Form Input Attributes:
 - `placeholder`: Placeholder text
 - `value`: Default value for the input
 - `minlength` & `maxlength`: Minimum/Maximum number of characters allowed
-
----
-
 - `multiple`: Specifies that a user can enter more than one value in an input element.
 - `accept`: Specifies the types of files that the server accepts.
 - `rows`: Specifies the visible number of lines in a textarea element.
 - `cols`: Specifies the visible width of a textarea element.
+
+---
+
 - `min` & `max`: Specifies the minimum/maximum value allowed in an input element.
 - `checked`: Pre-selects a checkbox or radio button
 - `selected`: Pre-selects an option in a dropdown
@@ -606,11 +603,11 @@ Form Input Attributes:
 - `button`: Used to create buttons that do nothing.
 - `range`: Used to create a range of numeric values.
 
----
+<!-- ---
 
 ### Exercise: Forms
 
-Create a form with a text input for your favorite color and a submit button. Add a label for the input.
+Create a form with a text input for your favorite color and a submit button. Add a label for the input. -->
 
 ---
 
@@ -620,16 +617,19 @@ Create a personal portfolio web page that includes:
 
 - Your name and a short bio
 - A profile image
-- Navigation links (e.g., Home, About, Projects, Contact)
+- Links to your social media or GitHub
 - At least two sections (e.g., About Me, Projects)
+- Navigation links at the top of the page.
+    - Those links should move you to the sections you created in the previous step (e.g., Home, About, Projects, Contact)
 - A table listing your skills or education
 - A contact form (name, email, message)
 - Use semantic HTML elements where appropriate
-- Add comments in your code
-- Make sure your page is well-structured and visually organized
+
+---
 
 **Bonus:**
 
-- Add links to your social media or GitHub
-- Use an embedded YouTube video or map
+- Add an embedded YouTube video or map
 - Add a favicon and meta description
+
+<img src="../assets/images/html/portfolio.png" class="m-auto w-[43%] mt-4" alt="Portfolio Example"/>
