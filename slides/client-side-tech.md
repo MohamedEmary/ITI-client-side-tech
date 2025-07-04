@@ -4,12 +4,12 @@ background: https://cover.sli.dev
 title: Client Side Technologies
 author: Mohamed Emary
 info: |
-  ## Client Side Technologies (ITI)
+    ## Client Side Technologies (ITI)
 
-  Introduct to client side technologies (HTML, CSS, JavaScript).
+    Introduct to client side technologies (HTML, CSS, JavaScript).
 class: text-center
 drawings:
-  persist: false
+    persist: false
 transition: slide-left
 mdc: true
 ---
@@ -90,6 +90,9 @@ src: ./pages/intro.md
 src: ./pages/html.md
 ---
 
-<!-- prettier-ignore-end -->
 
 ---
+src: ./pages/css.md
+---
+
+<!-- prettier-ignore-end -->
