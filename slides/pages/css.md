@@ -200,9 +200,67 @@ a[href*="github"] {
 
 ---
 
-## Colors & Units
+## CSS Specificity
 
-- **Colors:**
+- **Specificity** determines which CSS rule is applied by the browsers when multiple rules could apply to the same element.
+- It is calculated based on different types of selectors.
+
+---
+
+### Specificity Calculation
+
+Specificity is usually represented as four values:  
+**(inline style, IDs, classes/attributes/pseudo-classes, elements/pseudo-elements)**
+
+<img src="../assets/images/css/css-specificity.png" alt="CSS Specificity Examples" class="w-[70%] m-auto mt-3">
+
+---
+
+### Specificity Examples
+
+- `ul#nav li.active a`  
+  Specificity: **0, 1, 1, 3**
+    - 0 inline styles
+    - 1 ID (`#nav`)
+    - 1 class (`.active`)
+    - 3 elements (`ul`, `li`, `a`)
+
+- `body.ie7 .col_3 h2 ~ h2`  
+  Specificity: **0, 0, 2, 3**
+    - 0 inline styles
+    - 0 IDs
+    - 2 classes (`.ie7`, `.col_3`)
+    - 3 elements (`body`, `h2`, `h2`)
+
+---
+
+- `<li style="color: red;">`  
+  Specificity: **1, 0, 0, 0**
+    - 1 inline style
+    - 0 IDs
+    - 0 classes
+    - 0 elements
+
+- `ul > li ul li ol li:first-letter`  
+  Specificity: **0, 0, 0, 7**
+    - 0 inline styles
+    - 0 IDs
+    - 0 classes
+    - 7 elements/pseudo-elements
+
+---
+
+### Key Points
+
+- **Inline styles** have the highest specificity.
+- **IDs** are more specific than classes, attributes, or pseudo-classes.
+- **Classes, attributes, and pseudo-classes** are more specific than elements or pseudo-elements.
+- If two selectors have the same specificity, the one that comes last in the CSS is applied.
+- `!important` can override any specificity, but be careful when using it.
+
+---
+
+## Colors
 
 ```css
 color: red;
@@ -218,13 +276,32 @@ SATURATION
 LIGHTNESS
 -->
 
-- **Units:**
-    - `px`: Pixel which is a fixed unit representing a single dot on the screen.
-    - `em`: Relative to the font-size of the element.
-    - `rem`: Relative to the font-size of the root element (usually `<html>`).
-    - `%`: Relative to the parent element's size.
-    - `vh`: Relative to 1% of the viewport height.
-    - `vw`: Relative to 1% of the viewport width.
+---
+
+## CSS Units
+
+**Relative vs Absolute Units:**
+
+- **Absolute units** (like `px`) always represent the same physical size, regardless of the user's settings or device.
+- **Relative units** (like `em`, `rem`, `%`, `vh`, `vw`) scale based on another value, such as the parent element's size, the root font size, or the viewport.
+- Relative units helps make your layout more flexible and responsive across different devices and screen sizes.
+
+---
+
+<img src="../assets/images/css/css-units.png" alt="CSS Units Visual Guide" class="w-[80%] m-auto mt-3">
+
+---
+
+**Example Units:**
+
+- `px`: Pixel which is a fixed unit representing a single dot on the screen.
+- `em`: Relative to the font-size of the element.
+- `rem`: Relative to the font-size of the root element (usually `<html>`).
+- `%`: Relative to the parent element's size.
+- `vh`: Relative to 1% of the viewport height.
+- `vw`: Relative to 1% of the viewport width.
+
+[CSS Units MDN](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
 
 ---
 
@@ -248,7 +325,7 @@ div {
 - **Shorthand Syntax:**
 
 ```css
-margin: [top] [right] [bottom] [left];
+margin: [top] [right] [bottom] [left]; /* clockwise order */
 padding: [top] [right] [bottom] [left];
 ```
 
@@ -379,6 +456,74 @@ background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
 ```
+
+---
+
+## CSS Functions
+
+CSS functions are special keywords that perform calculations or return values for CSS properties.
+
+### Common CSS Functions
+
+- **`calc()`**  
+  Performs calculations to determine CSS property values.
+
+```css
+width: calc(100% - 50px);
+margin-top: calc(2em + 10px);
+```
+
+- **`var()`**  
+  Uses the value of a custom property (CSS variable).
+
+```css
+:root {
+    --main-color: #3498db;
+}
+color: var(--main-color);
+```
+
+---
+
+- **`rgb()`, `rgba()`, `hsl()`, `hsla()`**  
+  Define colors using red/green/blue or hue/saturation/lightness.
+
+```css
+background: rgb(255, 0, 0);
+background: rgba(255, 0, 0, 0.5);
+background: hsl(120, 100%, 50%);
+background: hsla(120, 100%, 50%, 0.3);
+```
+
+- **`url()`**  
+  Specifies a file path for images, fonts, etc.
+
+```css
+background-image: url("background.jpg");
+font-family: url("font.woff2");
+```
+
+- **`min()`, `max()`, `clamp()`**  
+  Set values within a range.
+
+```css
+width: min(50vw, 400px);
+font-size: clamp(1rem, 2vw, 2rem);
+```
+
+---
+
+### More CSS Functions
+
+- **`repeat()`** (for CSS Grid)
+- **`linear-gradient()`**, **`radial-gradient()`** (backgrounds)
+
+```css
+background: linear-gradient(to right, red, yellow);
+background: radial-gradient(circle, red, blue);
+```
+
+[See more CSS functions on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_functions)
 
 ---
 
@@ -560,6 +705,10 @@ grid-row-end: 4;
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
+
+> The viewport `meta` tag allows device width to map to the width CSS property, which essentially means that device pixels correctly map to CSS pixels, allowing elements and fonts to correctly scale on mobile devices. Without this, a pixel is not a pixel in the traditional sense.
+>
+> [See this](https://stackoverflow.com/a/47742613)
 
 ---
 
