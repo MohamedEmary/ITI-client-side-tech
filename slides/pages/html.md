@@ -546,9 +546,9 @@ Create a table with two columns: "Country" and "Capital". Add three rows for dif
 Form Attributes:
 
 - `action`: URL to send form data
-- `method`: HTTP method (GET or POST)
+- `method`: HTTP method
 
-Form Methods:
+Other Form Methods:
 
 - `GET`: Used to retrieve data. Appends data to URL (not secure, limited length).
 - `POST`: Sends data in request body (more secure, no length limit)

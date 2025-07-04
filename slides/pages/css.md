@@ -243,6 +243,62 @@ div {
 
 ---
 
+## Margin & Padding
+
+- **Shorthand Syntax:**
+
+```css
+margin: [top] [right] [bottom] [left];
+padding: [top] [right] [bottom] [left];
+```
+
+- **Example:**
+
+```css
+margin: 10px 20px 30px 40px;
+padding: 5px 10px;
+```
+
+- **Separate Properties:**
+
+```css
+margin-top: 10px;
+margin-right: 20px;
+margin-bottom: 30px;
+margin-left: 40px;
+padding-top: 5px;
+padding-right: 10px;
+```
+
+---
+
+## Border
+
+- **Shorthand Syntax:**
+
+```css
+border: [width] [style] [color];
+```
+
+- **Example:**
+
+```css
+border: 2px solid #333;
+```
+
+- **Separate Properties:**
+
+```css
+border-width: 2px;
+border-style: solid;
+border-color: #333;
+
+/* Other border properties */
+border-radius: 5px;
+```
+
+---
+
 ## Display
 
 ```css
@@ -261,68 +317,94 @@ display: grid;
 
 ## Font
 
-```css
-body {
-    /* shorthand */
-    font:
-        italic bold 16px/1.5 Arial,
-        sans-serif;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    font-style: italic;
-    line-height: 1.5;
+- **Shorthand Syntax:**
 
-    text-align: center;
-    text-decoration: underline;
-}
+```css
+font: [style] [weight] [size]/[line-height] [family];
+```
+
+- **Example:**
+
+<!-- prettier-ignore-start -->
+
+```css
+font: italic bold 16px/1.5 Arial, sans-serif;
+```
+<!-- prettier-ignore-end -->
+
+- **Separate Properties:**
+
+```css
+font-style: italic;
+font-weight: bold;
+font-size: 16px;
+line-height: 1.5;
+font-family: Arial, sans-serif;
 ```
 
 ---
 
-<img src="../assets/images/css/font-shorthand.jpeg" alt="CSS Typography" class="m-auto mt-3">
+## Other Typography Styles
+
+```css
+text-align: center;
+text-decoration: underline;
+text-transform: uppercase;
+letter-spacing: 2px;
+word-spacing: 5px;
+```
 
 ---
 
 ## Background
 
-```css
-div {
-    /* shorthand */
-    background: #f0f0f0 url("image.jpg") no-repeat center/cover;
-    background-color: #f0f0f0;
-    background-image: url("image.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-```
-
-<img src="../assets/images/css/background-shorthand.jpeg" alt="CSS Display Types" class="mt-3 m-auto">
-
----
-
-## Border
+- **Shorthand Syntax:**
 
 ```css
-div {
-    /* shorthand */
-    border: 2px solid #333;
-
-    border-width: 2px;
-    border-style: solid;
-    border-color: #333;
-
-    border-radius: 8px;
-}
+background: [color] [image] [repeat] [position] / [size];
 ```
 
-<!-- box-shadow: 2px 2px 8px #aaa; -->
+- **Example:**
 
-<img src="../assets/images/css/border-shorthand.png" alt="CSS Display Types" class="mt-3 w-[80%] m-auto">
+```css
+background: #f0f0f0 url("image.jpg") no-repeat center/cover;
+```
+
+- **Separate Properties:**
+
+```css
+background-color: #f0f0f0;
+background-image: url("image.jpg");
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+```
 
 ---
 
 ## Flexbox
+
+- **Shorthand Syntax:**
+
+```css
+flex: [grow] [shrink] [basis];
+```
+
+- **Example:**
+
+```css
+flex: 1 1 100px;
+```
+
+- **Separate Properties:**
+
+```css
+flex-grow: 1;
+flex-shrink: 1;
+flex-basis: 100px;
+```
+
+---
 
 - **Container Properties:**
 
@@ -383,6 +465,31 @@ div {
 ---
 
 ## Grid
+
+- **Shorthand Syntax:**
+
+```css
+grid-column: [start] / [end];
+grid-row: [start] / [end];
+```
+
+- **Example:**
+
+```css
+grid-column: 1 / 3;
+grid-row: 2 / 4;
+```
+
+- **Separate Properties:**
+
+```css
+grid-column-start: 1;
+grid-column-end: 3;
+grid-row-start: 2;
+grid-row-end: 4;
+```
+
+---
 
 - **Container Properties:**
 
@@ -482,254 +589,13 @@ div::before {
 
 ---
 
-## Transitions & Animations
-
-- **Transition:**
-
-```css
-button {
-    transition: background 0.3s;
-}
-button:hover {
-    background: green;
-}
-```
-
----
-
-- **Animation:**
-
-```css
-@keyframes slide {
-    from {
-        left: 0;
-    }
-    to {
-        left: 100px;
-    }
-}
-.box {
-    position: relative;
-    animation: slide 2s infinite alternate;
-}
-```
-
----
-
-## Margin & Padding
-
-- **Shorthand Syntax:**
-
-```css
-margin: [top] [right] [bottom] [left];
-padding: [top] [right] [bottom] [left];
-```
-
-- **Example:**
-
-```css
-margin: 10px 20px 30px 40px;
-padding: 5px 10px;
-```
-
-- **Separate Properties:**
-
-```css
-margin-top: 10px;
-margin-right: 20px;
-margin-bottom: 30px;
-margin-left: 40px;
-padding-top: 5px;
-padding-right: 10px;
-```
-
----
-
-## Border
-
-- **Shorthand Syntax:**
-
-```css
-border: [width] [style] [color];
-```
-
-- **Example:**
-
-```css
-border: 2px solid #333;
-```
-
-- **Separate Properties:**
-
-```css
-border-width: 2px;
-border-style: solid;
-border-color: #333;
-```
-
----
-
-## Background
-
-- **Shorthand Syntax:**
-
-```css
-background: [color] [image] [repeat] [position] / [size];
-```
-
-- **Example:**
-
-```css
-background: #f0f0f0 url("image.jpg") no-repeat center/cover;
-```
-
-- **Separate Properties:**
-
-```css
-background-color: #f0f0f0;
-background-image: url("image.jpg");
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-```
-
----
-
-## Font
-
-- **Shorthand Syntax:**
-
-```css
-font: [style] [weight] [size]/[line-height] [family];
-```
-
-- **Example:**
-
-```css
-font:
-    italic bold 16px/1.5 Arial,
-    sans-serif;
-```
-
-- **Separate Properties:**
-
-```css
-font-style: italic;
-font-weight: bold;
-font-size: 16px;
-line-height: 1.5;
-font-family: Arial, sans-serif;
-```
-
----
-
-## Flex
-
-- **Shorthand Syntax:**
-
-```css
-flex: [grow] [shrink] [basis];
-```
-
-- **Example:**
-
-```css
-flex: 1 1 100px;
-```
-
-- **Separate Properties:**
-
-```css
-flex-grow: 1;
-flex-shrink: 1;
-flex-basis: 100px;
-```
-
----
-
-## Grid
-
-- **Shorthand Syntax:**
-
-```css
-grid-column: [start] / [end];
-grid-row: [start] / [end];
-```
-
-- **Example:**
-
-```css
-grid-column: 1 / 3;
-grid-row: 2 / 4;
-```
-
-- **Separate Properties:**
-
-```css
-grid-column-start: 1;
-grid-column-end: 3;
-grid-row-start: 2;
-grid-row-end: 4;
-```
-
----
-
-## Animation
-
-- **Shorthand Syntax:**
-
-```css
-animation: [name] [duration] [timing-function] [delay] [iteration-count]
-    [direction] [fill-mode] [play-state];
-```
-
-- **Example:**
-
-```css
-animation: slide 2s infinite alternate;
-```
-
-- **Separate Properties:**
-
-```css
-animation-name: slide;
-animation-duration: 2s;
-animation-iteration-count: infinite;
-animation-direction: alternate;
-```
-
----
-
-## Transition
-
-- **Shorthand Syntax:**
-
-```css
-transition: [property] [duration] [timing-function] [delay];
-```
-
-- **Example:**
-
-```css
-transition: background 0.3s;
-```
-
-- **Separate Properties:**
-
-```css
-transition-property: background;
-transition-duration: 0.3s;
-```
-
----
-
 ## Positioning
 
 CSS positioning allows you to control the placement of elements on the page.
 
 - `position: static`: default, follows normal flow
 - `position: relative`: offset from its normal position
-- `position: absolute`: positioned relative to the nearest positioned ancestord
+- `position: absolute`: positioned relative to the nearest positioned ancestor
 - `position: fixed`: positioned relative to the viewport
 - `position: sticky`: toggles between relative and fixed based on scroll
 
@@ -757,3 +623,76 @@ div {
 **CSS Positioning Cheatsheet:**
 
 <img src="../assets/images/css/css-positions.png" alt="CSS Positioning Visual Guide" class="w-[60%] m-auto">
+
+---
+
+## Transitions
+
+- **Shorthand Syntax:**
+
+```css
+transition: [property] [duration] [timing-function] [delay];
+```
+
+- **Example:**
+
+```css
+button {
+    transition: background 0.3s;
+}
+button:hover {
+    background: green;
+}
+```
+
+- **Separate Properties:**
+
+```css
+transition-property: background;
+transition-duration: 0;
+```
+
+---
+
+## Animations
+
+- **Shorthand Syntax:**
+
+```css
+animation: [name] [duration] [timing-function] [delay] [iteration-count]
+    [direction] [fill-mode] [play-state];
+```
+
+- **Example:**
+
+```css
+animation: slide 2s infinite alternate;
+```
+
+- **Separate Properties:**
+
+```css
+animation-name: slide;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+```
+
+---
+
+- **Animation Example:**
+
+```css
+@keyframes slide {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100px;
+    }
+}
+.box {
+    position: relative;
+    animation: slide 2s infinite alternate;
+}
+```
