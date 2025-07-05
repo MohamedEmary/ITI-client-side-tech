@@ -529,6 +529,32 @@ background: radial-gradient(circle, red, blue);
 
 ## Flexbox
 
+### **Container Properties**
+
+```css
+.container {
+    display: flex;
+    /* row | row-reverse | column | column-reverse */
+    flex-direction: row;
+    /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+    justify-content: center;
+    /* stretch | flex-start | flex-end | center | baseline */
+    align-items: center;
+    /* stretch | flex-start | flex-end | center | space-between | space-around */
+    align-content: stretch;
+    /* nowrap | wrap | wrap-reverse */
+    flex-wrap: wrap;
+    /* space between items */
+    gap: 10px;
+}
+```
+
+<!-- What is baseline: https://stackoverflow.com/a/34611670 -->
+
+---
+
+### **Item Properties**
+
 - **Shorthand Syntax:**
 
 ```css
@@ -549,31 +575,9 @@ flex-shrink: 1;
 flex-basis: 100px;
 ```
 
----
-
-- **Container Properties:**
-
-```css
-.container {
-    display: flex;
-    /* row | row-reverse | column | column-reverse */
-    flex-direction: row;
-    /* flex-start | flex-end | center | space-between | space-around | space-evenly */
-    justify-content: center;
-    /* stretch | flex-start | flex-end | center | baseline */
-    align-items: center;
-    /* stretch | flex-start | flex-end | center | space-between | space-around */
-    align-content: stretch;
-    /* nowrap | wrap | wrap-reverse */
-    flex-wrap: wrap;
-    /* space between items */
-    gap: 10px;
-}
-```
+<!-- flex-shrink is used along with flex-basis -->
 
 ---
-
-- **Item Properties:**
 
 ```css
 .item {
@@ -594,6 +598,8 @@ flex-basis: 100px;
 - Creating navigation bars
 - Building responsive one dimensional layouts
 
+> Chrome Dev Tools have flexbox visualizations to help you understand how flex properties are applied.
+
 ---
 
 ### Flexbox Cheatsheet
@@ -602,14 +608,46 @@ flex-basis: 100px;
 
 ---
 
-## Sites to Create Flexbox Layouts
+### Sites to Create Flexbox Layouts
 
 - [CSS Generator](https://cssgenerator.pl/en/flexbox-generator/)
 - [CSS Layout Generator](https://layout.bradwoods.io/)
 
+<br>
+
+### Flexbox Playground
+
+- [Flexbox Playground](https://flexbox-seven.vercel.app/)
+
+<br>
+
+### Flexbox Game
+
+- [Flexbox Froggy](https://flexboxfroggy.com/)
+
 ---
 
 ## Grid
+
+### **Container Properties**
+
+```css
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* column sizes */
+    grid-template-rows: 100px auto; /* row sizes */
+    gap: 10px 20px; /* row-gap column-gap */
+    grid-template-areas:
+        "header header header"
+        "sidebar main main";
+    justify-items: center; /* align items horizontally */
+    align-items: stretch; /* align items vertically */
+}
+```
+
+---
+
+### **Item Properties**
 
 - **Shorthand Syntax:**
 
@@ -636,26 +674,6 @@ grid-row-end: 4;
 
 ---
 
-- **Container Properties:**
-
-```css
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* column sizes */
-    grid-template-rows: 100px auto; /* row sizes */
-    gap: 10px 20px; /* row-gap column-gap */
-    grid-template-areas:
-        "header header header"
-        "sidebar main main";
-    justify-items: center; /* align items horizontally */
-    align-items: stretch; /* align items vertically */
-}
-```
-
----
-
-- **Item Properties:**
-
 ```css
 .grid-item {
     grid-column: 1 / 3; /* start / end line */
@@ -668,7 +686,7 @@ grid-row-end: 4;
 
 ---
 
-### Common Use Cases:
+### **Common Use Cases:**
 
 - Page layouts (header, sidebar, main, footer)
 - Complex two-dimensional layouts
