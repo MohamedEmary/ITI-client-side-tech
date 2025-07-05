@@ -640,8 +640,120 @@ flex-basis: 100px;
     grid-template-areas:
         "header header header"
         "sidebar main main";
-    justify-items: center; /* align items horizontally */
-    align-items: stretch; /* align items vertically */
+}
+```
+
+---
+
+### **Container Items Alignment Properties**
+
+```css
+.grid-container {
+    justify-items: center; /* align items in the column */
+    align-items: stretch; /* align items in the row */
+    justify-content: center; /* align whole grid horizontally */
+    align-content: stretch; /* align whole grid vertically */
+}
+```
+
+<!-- TODO: what is the difference between `justify-content`, `align-content`, `justify-items`, and `align-items`? -->
+
+- **`justify-content`**: Aligns the entire grid horizontally within the container (when grid is smaller than container).
+- **`align-content`**: Aligns the entire grid vertically within the container (when grid is smaller than container).
+- **`justify-items`**: Aligns individual items horizontally within their grid area.
+- **`align-items`**: Aligns individual items vertically within their grid area.
+
+---
+
+#### **Difference between `fr` and `auto`**
+
+- **`fr` (fractional unit):**  
+  Distributes available space in the grid container. Each `fr` unit takes a share of the remaining space after other columns (like those sized with `auto` or fixed units) are allocated.
+
+- **`auto`:**  
+  Sizes the column based on its content—just enough to fit the largest item in that column.
+
+**Example:**
+
+```css
+grid-template-columns: auto 1fr 2fr;
+```
+
+- The **first column** (`auto`) will be just wide enough for its content.
+- The **second column** (`1fr`) will take 1 part of the remaining space.
+- The **third column** (`2fr`) will take 2 parts of the remaining space.
+
+---
+
+### **Grid Functions: `repeat()` and `minmax()`**
+
+- **`repeat()`**  
+  Allows you to repeat columns or rows without writing them out multiple times.
+
+```css
+grid-template-columns: repeat(3, 1fr);
+/* Same as: 1fr 1fr 1fr */
+```
+
+- **`minmax()`**  
+  Sets a minimum and maximum size for a track (column or row).
+
+```css
+grid-template-columns: 1fr minmax(150px, 2fr) 1fr;
+```
+
+- The second column will be at least 150px wide, but can grow up to 2fr.
+
+---
+
+### **Grid Auto Rows**
+
+- **`grid-auto-rows`**  
+  Sets the size of rows that are created automatically (when you have more items than defined rows).
+
+```css
+.grid-container {
+    grid-auto-rows: 120px;
+}
+```
+
+- All implicit rows will be 120px tall.
+
+---
+
+### **Grid Row Gap & Column Gap**
+
+- **`row-gap`** and **`column-gap`**  
+  Control the spacing between grid rows and columns.
+
+```css
+.grid-container {
+    row-gap: 20px;
+    column-gap: 40px;
+}
+```
+
+- Or use the shorthand:
+
+```css
+.grid-container {
+    gap: 20px 40px; /* row-gap column-gap */
+}
+```
+
+---
+
+#### **Example:**
+
+```css
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    grid-auto-rows: 80px;
+    row-gap: 15px;
+    column-gap: 25px;
+    justify-content: center;
+    align-content: stretch;
 }
 ```
 
@@ -674,6 +786,50 @@ grid-row-end: 4;
 
 ---
 
+#### **Aligning Individual Grid Items**
+
+- **`align-self`**  
+  Aligns a grid item vertically within its grid area (overrides the container's `align-items`).
+
+```css
+.grid-item {
+    align-self: center; /* start | end | center | stretch */
+}
+```
+
+- **`justify-self`**  
+  Aligns a grid item horizontally within its grid area (overrides the container's `justify-items`).
+
+```css
+.grid-item {
+    justify-self: end; /* start | end | center | stretch */
+}
+```
+
+---
+
+#### **Spanning Multiple Columns or Rows**
+
+- Use the `span` keyword to make an item span multiple columns or rows.
+
+```css
+.grid-item {
+    grid-column: span 2; /* spans 2 columns */
+    grid-row: span 3; /* spans 3 rows */
+}
+```
+
+- Or specify the number of columns/rows directly:
+
+```css
+.grid-item {
+    grid-column: 2 / span 3; /* starts at column 2, spans 3 columns */
+    grid-row: 1 / span 2; /* starts at row 1, spans 2 rows */
+}
+```
+
+---
+
 ```css
 .grid-item {
     grid-column: 1 / 3; /* start / end line */
@@ -699,7 +855,7 @@ grid-row-end: 4;
 
 ---
 
-## Sites to Create Grid Layouts
+### Sites to Create Grid Layouts
 
 - [CSS Layout Generator](https://layout.bradwoods.io/)
 - [CSS Grid Generator](https://cssgridgenerator.io/)
