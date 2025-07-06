@@ -632,4 +632,4 @@ Create a personal portfolio web page that includes:
 - Add an embedded YouTube video or map
 - Add a favicon and meta description
 
-<img src="../assets/images/html/portfolio.png" class="m-auto w-[43%] mt-4" alt="Portfolio Example"/>
+<a href="https://github.com/MohamedEmary/ITI-client-side-tech/blob/main/solutions/html/" target="_blank"><img src="../assets/images/html/portfolio.png" class="m-auto w-[43%] mt-4" alt="Portfolio Example"/></a>
