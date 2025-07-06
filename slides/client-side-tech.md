@@ -49,6 +49,10 @@ mdc: true
   blockquote{
     margin-top: 10px;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 </style>
 
 <div class="text-5xl">Client Side Technologies</div>
