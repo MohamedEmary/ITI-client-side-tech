@@ -34,7 +34,7 @@ mdc: true
   }
 
   p, li, h1, h2, h3, h4, h5, h6{
-    user-select: all !important;
+    /* user-select: all !important; */
   }
 
   .slidev-toc, .slidev-toc-list{
