@@ -99,4 +99,9 @@ src: ./pages/html.md
 src: ./pages/css.md
 ---
 
+
+---
+src: ./pages/js.md
+---
+
 <!-- prettier-ignore-end -->
