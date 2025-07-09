@@ -695,6 +695,159 @@ flex-basis: 100px;
 
 ---
 
+## Responsive Design
+
+- **Media Queries:**
+
+```css
+@media (max-width: 600px) {
+    body {
+        background: lightblue;
+    }
+}
+```
+
+- **Viewport meta tag:**
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+> The viewport `meta` tag allows device width to map to the width CSS property, which essentially means that device pixels correctly map to CSS pixels, allowing elements and fonts to correctly scale on mobile devices. Without this, a pixel is not a pixel in the traditional sense.
+>
+> [See this](https://stackoverflow.com/a/47742613)
+
+---
+
+## Pseudo-classes & Pseudo-elements
+
+- **Pseudo-classes:**
+
+```css
+a:hover {
+    color: orange;
+}
+input:focus {
+    border-color: blue;
+}
+```
+
+- **Pseudo-elements:**
+
+```css
+p::first-line {
+    font-weight: bold;
+}
+div::before {
+    content: "★ ";
+}
+```
+
+---
+
+## Positioning
+
+CSS positioning allows you to control the placement of elements on the page.
+
+- `position: static`: default, follows normal flow
+- `position: relative`: offset from its normal position
+- `position: absolute`: positioned relative to the nearest positioned ancestor
+- `position: fixed`: positioned relative to the viewport
+- `position: sticky`: toggles between relative and fixed based on scroll
+
+**Related Properties:**
+
+- `top`, `right`, `bottom`, `left`: Offsets the element when position is not static.
+- `inset`: Shorthand for `top`, `right`, `bottom`, and `left`.
+- `z-index`: Controls stacking order (only works on positioned elements).
+
+---
+
+**Example:**
+
+```css
+div {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    z-index: 10;
+}
+```
+
+---
+
+**CSS Positioning Cheatsheet:**
+
+<img src="../assets/images/css/css-positions.png" alt="CSS Positioning Visual Guide" class="w-[60%] m-auto">
+
+---
+
+<!-- ## Assignment: Responsive Card Layout -->
+
+```html
+<div class="card-container">
+    <div class="card">
+        <span class="badge">New</span>
+        <h2>Card Title 1</h2>
+        <p>
+            This is the first card. It contains some text and a floating badge.
+        </p>
+        <button>Read More</button>
+    </div>
+    <div class="card">
+        <span class="badge">Sale</span>
+        <h2>Card Title 2</h2>
+        <p>
+            This is the second card. Try resizing the window to see the layout
+            change.
+        </p>
+        <button>Read More</button>
+    </div>
+    <div class="card">
+        <span class="badge">Hot</span>
+        <h2>Card Title 3</h2>
+        <p>
+            This is the third card. The badge should always stay in the
+            top-right corner.
+        </p>
+        <button>Read More</button>
+    </div>
+</div>
+```
+
+---
+
+### 2. CSS Tasks (`cards.css`)
+
+- **Flexbox Layout:**
+    1. Use Flexbox to display the cards in a row on large screens, and stack them in a column on screens smaller than 700px.
+    2. Add a gap of `24px` between cards.
+    3. Center the cards horizontally and vertically within the viewport.
+
+- **Card Styling:**
+    1. Give each card a fixed width (`300px`), padding (`20px`), border-radius (`12px`), and a subtle box-shadow.
+    2. Use Flexbox inside each card to space the content vertically (title, text, button).
+
+- **Badge Positioning:**
+    1. Use `position: absolute` to place the `.badge` in the top-right corner of each card.
+    2. Make sure the card has `position: relative` so the badge is positioned correctly.
+    3. Style the badge with a background color, white text, and some padding.
+
+---
+
+- **Button Styling:**
+    1. Style the button to look modern (rounded corners, background color, hover effect).
+
+- **Responsiveness:**
+    1. Use a media query to stack the cards vertically on screens smaller than 700px.
+
+## Deliverables
+
+- `cards.html`
+- `cards.css`
+
+---
+
 ## Grid
 
 ### **Container Properties**
@@ -927,90 +1080,3 @@ grid-row-end: 4;
 
 - [CSS Layout Generator](https://layout.bradwoods.io/)
 - [CSS Grid Generator](https://cssgridgenerator.io/)
-
----
-
-## Responsive Design
-
-- **Media Queries:**
-
-```css
-@media (max-width: 600px) {
-    body {
-        background: lightblue;
-    }
-}
-```
-
-- **Viewport meta tag:**
-
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-```
-
-> The viewport `meta` tag allows device width to map to the width CSS property, which essentially means that device pixels correctly map to CSS pixels, allowing elements and fonts to correctly scale on mobile devices. Without this, a pixel is not a pixel in the traditional sense.
->
-> [See this](https://stackoverflow.com/a/47742613)
-
----
-
-## Pseudo-classes & Pseudo-elements
-
-- **Pseudo-classes:**
-
-```css
-a:hover {
-    color: orange;
-}
-input:focus {
-    border-color: blue;
-}
-```
-
-- **Pseudo-elements:**
-
-```css
-p::first-line {
-    font-weight: bold;
-}
-div::before {
-    content: "★ ";
-}
-```
-
----
-
-## Positioning
-
-CSS positioning allows you to control the placement of elements on the page.
-
-- `position: static`: default, follows normal flow
-- `position: relative`: offset from its normal position
-- `position: absolute`: positioned relative to the nearest positioned ancestor
-- `position: fixed`: positioned relative to the viewport
-- `position: sticky`: toggles between relative and fixed based on scroll
-
-**Related Properties:**
-
-- `top`, `right`, `bottom`, `left`: Offsets the element when position is not static.
-- `inset`: Shorthand for `top`, `right`, `bottom`, and `left`.
-- `z-index`: Controls stacking order (only works on positioned elements).
-
----
-
-**Example:**
-
-```css
-div {
-    position: absolute;
-    top: 20px;
-    left: 40px;
-    z-index: 10;
-}
-```
-
----
-
-**CSS Positioning Cheatsheet:**
-
-<img src="../assets/images/css/css-positions.png" alt="CSS Positioning Visual Guide" class="w-[60%] m-auto">
