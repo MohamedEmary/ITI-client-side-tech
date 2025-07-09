@@ -213,6 +213,9 @@ if (0) {
         console.log("Try again");
     }
     ```
+
+---
+
 - **Nesting:**
     ```js
     if (age > 18) {
@@ -239,6 +242,8 @@ switch (color) {
         console.log("Unknown color");
 }
 ```
+
+---
 
 - **Nesting:**
     ```js
@@ -280,6 +285,9 @@ for (var i = 0; i < 5; i++) {
     ```js
     for (var i = 0;; i++) { ... }
     ```
+
+---
+
 - **No step:**
     ```js
     for (var i = 0; i < 5;) { ... i++; }
@@ -288,6 +296,8 @@ for (var i = 0; i < 5; i++) {
     ```js
     for (;;) { ... } // infinite loop
     ```
+
+---
 
 ### while loop
 
