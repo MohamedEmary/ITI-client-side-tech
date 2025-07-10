@@ -321,6 +321,21 @@ do {
 
 ---
 
+### `continue` vs `break` in Loops
+
+- **`break`:** Exits the loop immediately.
+- **`continue`:** Skips the current iteration and continues with the next one.
+
+```js {monaco-run}
+for (var i = 0; i < 5; i++) {
+    if (i === 2) continue; // skips 2
+    if (i === 4) break; // stops at 4
+    console.log(i);
+}
+```
+
+---
+
 ## Assignment
 
 - Write an HTML file with a button. When the button is clicked, show an alert with your name.
@@ -339,3 +354,305 @@ do {
 - Write a function with no return statement. Call it and print the result.
 - Write a nested if statement to check if a number is even and positive. Print a message for each case.
 - Write a loop that sums all numbers from 1 to 100 and prints the result.
+
+---
+
+## confirm & prompt
+
+- **confirm(message):** Shows OK/Cancel dialog, returns true/false.
+    ```js
+    var ok = confirm("Are you sure?");
+    ```
+- **prompt(message, default):** Shows input dialog, returns string or null.
+    ```js
+    var name = prompt("Enter your name:", "Ali");
+    ```
+
+---
+
+## Functions
+
+- **Parameters:** Variables in function definition.
+- **Arguments:** Values passed to the function when called.
+
+- **Function Declaration:**
+    ```js
+    function add(a, b) {
+        return a + b;
+    }
+    ```
+- **Function Expression:**
+    ```js
+    var multiply = function (a, b) {
+        return a * b;
+    };
+    ```
+
+---
+
+### Functional Programming
+
+JS supports functional programming with first-class functions, closures, and higher-order functions.
+
+This means functions can be passed as arguments, returned from other functions, and assigned to variables.
+
+---
+
+First-class functions means that functions can be:
+
+- Assigned to a variable
+- Passed as an argument to another function
+- Returned from another function
+- Stored in arrays or objects
+
+```js
+function greet(name) {
+    return function () {
+        console.log("Hello, " + name);
+    };
+}
+
+var greetAli = greet("Ali");
+greetAli(); // "Hello, Ali"
+```
+
+---
+
+## var Scope
+
+- `var` is function-scoped, not block-scoped.
+
+```js {monaco-run}
+function test() {
+    if (true) {
+        var x = 10;
+    }
+    console.log(x); // 10
+}
+test();
+```
+
+---
+
+Closure
+
+```js {monaco-run}
+function outer() {
+    var x = 10;
+    function inner() {
+        console.log(x); // inner "remembers" x
+    }
+    return inner;
+}
+var fn = outer();
+fn(); // prints 10
+```
+
+---
+
+## Objects
+
+- **Definition:**
+    ```js
+    var person = {
+        name: "Ali",
+        age: 25,
+        greet: function () {
+            console.log("Hello!");
+        },
+    };
+    ```
+- **Accessing Properties:**
+    ```js
+    console.log(person.name);
+    console.log(person["age"]);
+    ```
+
+---
+
+## Math Object
+
+- Provides mathematical constants and functions.
+    ```js
+    Math.PI; // 3.1415...
+    Math.round(2.7); // 3
+    Math.random(); // random number 0-1
+    Math.max(1, 5, 3); // 5
+    ```
+
+---
+
+## parseInt vs Number
+
+- **parseInt(string):** Parses up to first non-digit, returns integer.
+    ```js
+    parseInt("42px"); // 42
+    parseInt("abc"); // NaN
+    ```
+- **Number(string):** Converts entire string, returns number or NaN.
+    ```js
+    Number("42"); // 42
+    Number("42px"); // NaN
+    ```
+
+---
+
+## toString vs toFixed
+
+- **toString():** Converts value to string.
+    ```js
+    var n = 123;
+    n.toString(); // "123"
+    ```
+- **toFixed(digits):** Formats number with fixed decimals.
+    ```js
+    var n = 3.14159;
+    n.toFixed(2); // "3.14"
+    ```
+
+---
+
+## NaN, isNaN, and Infinity
+
+- **NaN:** Not-a-Number, result of invalid math.
+- **isNaN(value):** Checks if value is NaN.
+    ```js
+    isNaN("abc"); // true
+    ```
+- **Infinity:** Result of dividing by zero.
+    ```js
+    1 / 0; // Infinity
+    -1 / 0; // -Infinity
+    ```
+
+---
+
+## Infinity \* 0, Infinity / Infinity, Infinity - Infinity
+
+- **Infinity \* 0:** NaN
+- **Infinity / Infinity:** NaN
+- **Infinity - Infinity:** NaN
+    ```js
+    Infinity * 0; // NaN
+    Infinity / Infinity; // NaN
+    Infinity - Infinity; // NaN
+    ```
+
+---
+
+## Negative Zero
+
+- JavaScript has -0 and 0.
+    ```js
+    var a = -0;
+    var b = 0;
+    a === b; // true
+    1 / a; // -Infinity
+    1 / b; // Infinity
+    ```
+
+---
+
+## Ternary Operator
+
+- Short form of if/else.
+    ```js
+    var result = score > 50 ? "Pass" : "Fail";
+    ```
+
+---
+
+## Dates and Dealing with Them
+
+- **Create a Date:**
+    ```js
+    var now = new Date();
+    var d = new Date("2025-07-10");
+    ```
+- **Get Parts:**
+    ```js
+    now.getFullYear();
+    now.getMonth(); // 0-based
+    now.getDate();
+    now.getHours();
+    ```
+
+---
+
+## Data Type Functions
+
+- **String Methods:**
+    - `length`: Returns the length of the string.
+    - `toUpperCase()`: Converts to uppercase.
+    - `toLowerCase()`: Converts to lowercase.
+    - `indexOf(substring)`: Finds the index of a substring.
+    - `substring(start, end)`: Extracts part of a string.
+    - `replace(search, replacement)`: Replaces part of a string.
+    - Example:
+        ```js
+        var s = "Hello World";
+        s.length; // 11
+        s.toUpperCase(); // "HELLO WORLD"
+        s.indexOf("World"); // 6
+        s.replace("World", "JS"); // "Hello JS"
+        ```
+
+---
+
+- **Number Methods:**
+    - `toFixed(digits)`: Formats with fixed decimals.
+    - `toString()`: Converts number to string.
+    - `parseInt(string)`: Parses string to integer.
+    - `parseFloat(string)`: Parses string to float.
+    - Example:
+        ```js
+        var n = 3.14159;
+        n.toFixed(2); // "3.14"
+        n.toString(); // "3.14159"
+        parseInt("42px"); // 42
+        parseFloat("3.14abc"); // 3.14
+        ```
+
+---
+
+- **Array Methods:**
+    - `push(item)`: Adds to end.
+    - `pop()`: Removes from end.
+    - `shift()`: Removes from start.
+    - `unshift(item)`: Adds to start.
+    - `slice(start, end)`: Returns shallow copy.
+    - `splice(start, deleteCount, ...items)`: Changes array.
+    - `join(separator)`: Joins elements into string.
+    - Example:
+        ```js
+        var arr = [1, 2, 3];
+        arr.push(4); // [1,2,3,4]
+        arr.slice(1, 3); // [2,3]
+        arr.join(","); // "1,2,3,4"
+        ```
+
+---
+
+- **Object Methods:**
+    - `Object.keys(obj)`: Returns array of property names.
+    - `Object.values(obj)`: Returns array of property values.
+    - `Object.entries(obj)`: Returns array of [key, value] pairs.
+    - Example:
+        ```js
+        var person = { name: "Ali", age: 25 };
+        Object.keys(person); // ["name", "age"]
+        Object.values(person); // ["Ali", 25]
+        Object.entries(person); // [["name", "Ali"], ["age", 25]]
+        ```
+
+---
+
+## for in
+
+- Used to iterate over object properties.
+    ```js
+    var obj = { a: 1, b: 2 };
+    for (var key in obj) {
+        console.log(key, obj[key]);
+    }
+    ```
