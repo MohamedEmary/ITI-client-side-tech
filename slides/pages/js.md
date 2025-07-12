@@ -418,7 +418,7 @@ greetAli(); // "Hello, Ali"
 
 ---
 
-## var Scope
+## `var` Scope
 
 - `var` is function-scoped, not block-scoped.
 
@@ -470,7 +470,7 @@ fn(); // prints 10
 
 ---
 
-## Math Object
+## `Math` Object
 
 - Provides mathematical constants and functions.
     ```js
@@ -482,14 +482,14 @@ fn(); // prints 10
 
 ---
 
-## parseInt vs Number
+## `parseInt` vs `Number`
 
-- **parseInt(string):** Parses up to first non-digit, returns integer.
+- **`parseInt(string)`:** Parses up to first non-digit, returns integer.
     ```js
     parseInt("42px"); // 42
     parseInt("abc"); // NaN
     ```
-- **Number(string):** Converts entire string, returns number or NaN.
+- **`Number(string)`:** Converts entire string, returns number or `NaN`.
     ```js
     Number("42"); // 42
     Number("42px"); // NaN
@@ -497,14 +497,14 @@ fn(); // prints 10
 
 ---
 
-## toString vs toFixed
+## `toString` vs `toFixed`
 
-- **toString():** Converts value to string.
+- **`toString()`:** Converts value to string.
     ```js
     var n = 123;
     n.toString(); // "123"
     ```
-- **toFixed(digits):** Formats number with fixed decimals.
+- **`toFixed(digits)`:** Formats number with fixed decimals.
     ```js
     var n = 3.14159;
     n.toFixed(2); // "3.14"
@@ -512,10 +512,10 @@ fn(); // prints 10
 
 ---
 
-## NaN, isNaN, and Infinity
+## `NaN`, `isNaN`, and `Infinity`
 
-- **NaN:** Not-a-Number, result of invalid math.
-- **isNaN(value):** Checks if value is NaN.
+- **`NaN`:** Not-a-Number, result of invalid math.
+- **`isNaN(value)`:** Checks if value is `NaN`.
     ```js
     isNaN("abc"); // true
     ```
@@ -527,11 +527,11 @@ fn(); // prints 10
 
 ---
 
-## Infinity \* 0, Infinity / Infinity, Infinity - Infinity
+## `NaN` Operations
 
-- **Infinity \* 0:** NaN
-- **Infinity / Infinity:** NaN
-- **Infinity - Infinity:** NaN
+- **`Infinity * 0`:** `NaN`
+- **`Infinity / Infinity`:** `NaN`
+- **`Infinity - Infinity`:** `NaN`
     ```js
     Infinity * 0; // NaN
     Infinity / Infinity; // NaN
@@ -542,7 +542,7 @@ fn(); // prints 10
 
 ## Negative Zero
 
-- JavaScript has -0 and 0.
+- JavaScript has `-0` and `0`.
     ```js
     var a = -0;
     var b = 0;
@@ -553,28 +553,11 @@ fn(); // prints 10
 
 ---
 
-## Ternary Operator
+## Ternary Operator `? :`
 
 - Short form of if/else.
     ```js
     var result = score > 50 ? "Pass" : "Fail";
-    ```
-
----
-
-## Dates and Dealing with Them
-
-- **Create a Date:**
-    ```js
-    var now = new Date();
-    var d = new Date("2025-07-10");
-    ```
-- **Get Parts:**
-    ```js
-    now.getFullYear();
-    now.getMonth(); // 0-based
-    now.getDate();
-    now.getHours();
     ```
 
 ---
@@ -656,3 +639,51 @@ fn(); // prints 10
         console.log(key, obj[key]);
     }
     ```
+
+---
+
+## Assignment
+
+1. Write a program to check if a given number is positive, negative, or zero using if-else.
+2. Write a program that uses `confirm()` to ask the user: "Do you want to proceed?" If the user clicks OK, display "You chose to proceed" in an alert. If the user clicks Cancel, display "Action canceled."
+3. Modify this code to use a ternary operator instead of if-else:
+
+```js
+var num = 10;
+if (num % 2 === 0) {
+    console.log("hi");
+} else {
+    console.log("hello");
+}
+```
+
+---
+
+4. Ask the user to enter their age. You must validate the user input (positive numbers only). Show the status of the user knowing that:
+    - Child is between 1-10
+    - Teenager is between 11-18
+    - Grown up is between 19-50
+    - Old is greater than 50  
+      Keep asking the user to enter another age until they click cancel.
+5. Ask the user to enter a string. Count the number of vowels in that string (`a`, `e`, `o`, `u`, `i`).
+6. Write a JavaScript program to convert the 24-hour clock to 12-hour, adding AM or PM based on its value. Use `prompt()` to get the value from the user.  
+   Examples:  
+   `0 -> 12AM`  
+   `11 -> 11AM`  
+   `13 -> 1PM`
+
+---
+
+7. Write a JavaScript program to convert the first letter of a string to uppercase. Ask the user to enter the string and show the result.
+8. Write a script where the user confirms their choice of color:
+    - First, use `prompt()` to let the user type their favorite color.
+    - Then, use `confirm()` to ask: "You chose [color]. Is that correct?"
+    - If OK, display an alert: "Great choice!"
+    - If Cancel, display: "Let's try again."
+9. Write a while loop that keeps prompting the user for a password until they enter the correct one.
+10. How do you compare two dates in JavaScript to see if one is earlier than the other?
+11. Write a JavaScript program to calculate the number of days between two given dates.
+12. Use a for loop to calculate the sum of all even numbers between 1 and 100.
+13. How can you extract the substring "World" from the string "Hello World!"?
+14. How can you round the number 5.678 to two decimal places?
+15. Write a JavaScript program that returns `true` if a number is divisible by both 3 and 5, otherwise `false`.
