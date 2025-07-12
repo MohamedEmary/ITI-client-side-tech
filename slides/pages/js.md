@@ -630,7 +630,7 @@ fn(); // prints 10
 
 ---
 
-## for in
+## `for ... in`
 
 - Used to iterate over object properties.
     ```js
@@ -687,3 +687,102 @@ if (num % 2 === 0) {
 13. How can you extract the substring "World" from the string "Hello World!"?
 14. How can you round the number 5.678 to two decimal places?
 15. Write a JavaScript program that returns `true` if a number is divisible by both 3 and 5, otherwise `false`.
+
+---
+
+## Date in JavaScript
+
+### Date Constructor
+
+The JavaScript `Date` constructor can create date objects using the following [parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date#syntax):
+
+- Date strings in various formats (e.g., `"Oct 4 1990"`, `"1990-10-4"`, `"10/4/1990"`, `"1990"`, `"90"`, `"1990 10"`).
+- Timestamp (e.g., `"1990-10-25T06:10:00Z"`).
+- Numeric values for year, month (0-based), day, hour, minute, second, millisecond (e.g., `new Date(1990, 9, 4)`).
+    - Number of milliseconds since Jan 1, 1970 (Epoch time).
+
+[**Valid datetime values**](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/time#valid_datetime_values)
+
+---
+
+### `Date.now()`
+
+Returns current timestamp in milliseconds since Jan 1, 1970 (Epoch Time).
+
+```js
+console.log(Date.now()); // 1752353340443
+```
+
+<br>
+<br>
+
+### Epoch Time / Unix Time
+
+- Number of seconds since January 1, 1970.
+- Used as a starting point for time calculations in computers.
+- Important for tracking and comparing dates.
+- **Year 2038 Problem:** Limitation in 32-bit systems for storing time.
+
+---
+
+<h3 class="mt-55"> Date Methods (Getters)</h3>
+
+---
+
+| Method          | Description                              | Return Value / Range |
+| --------------- | ---------------------------------------- | -------------------- |
+| `getTime()`     | Number of milliseconds since Jan 1, 1970 | Number               |
+| `getDate()`     | Day of the month                         | 1-31                 |
+| `getFullYear()` | Four-digit year                          | e.g., 2025           |
+| `getMonth()`    | Month (zero-based)                       | 0-11 (Jan=0, Dec=11) |
+| `getDay()`      | Day of the week (Sunday=0)               | 0-6                  |
+| `getHours()`    | Hour                                     | 0-23                 |
+| `getMinutes()`  | Minutes                                  | 0-59                 |
+| `getSeconds()`  | Seconds                                  | 0-59                 |
+
+---
+
+<h3 class="mt-55"> Date Methods (Setters)</h3>
+
+---
+
+| Method                                     | Description                                      | Parameters                     |
+| ------------------------------------------ | :----------------------------------------------- | ------------------------------ |
+| `setTime(milliseconds)`                    | Sets time using milliseconds since Jan 1, 1970   | milliseconds (Number)          |
+| `setDate(day)`                             | Sets day of the month (can be negative/positive) | day (Number)                   |
+| `setFullYear(year, month?, day?)`          | Sets year, optional month and day                | year (Number), month?, day?    |
+| `setMonth(month, day?)`                    | Sets month (0-11), optional day                  | month (Number), day?           |
+| `setHours(hours, minutes?, seconds?, ms?)` | Sets hour and optionally minutes, seconds, ms    | hours, minutes?, seconds?, ms? |
+
+There is also `setMinutes`, and `setSeconds` which work in a similar way to `setHours`
+
+---
+
+### Date Parsing & Formatting
+
+- `Date.parse(string)`: Parses a date string and returns timestamp.
+- `toLocaleString(locale, options)`: Formats date/time for a specific locale.
+    - Options: `weekday`, `day`, `month`, `year`, `timeZone`, etc.
+
+---
+
+### Comparing Dates
+
+- Dates can be compared using subtraction or relational operators.
+    - Example: `date1 < date2` checks if date1 is earlier than date2.
+    - Subtracting two dates gives the difference in milliseconds.
+
+---
+
+### Calculating Age or Duration
+
+- Subtract two dates to get the difference in milliseconds.
+- Convert milliseconds to seconds, minutes, hours, days, or years as needed.
+
+<br>
+<br>
+
+### Measuring Code Execution Time
+
+- Use `Date.now()` before and after code execution.
+- Subtract start time from end time to get duration in milliseconds or seconds.
