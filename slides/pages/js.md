@@ -786,3 +786,205 @@ There is also `setMinutes`, and `setSeconds` which work in a similar way to `set
 
 - Use `Date.now()` before and after code execution.
 - Subtract start time from end time to get duration in milliseconds or seconds.
+
+---
+
+## DOM (Document Object Model)
+
+- The DOM is a tree-like structure representing the document as nodes and objects.
+- HTML is the initial page content; the DOM is the current content in memory.
+- JavaScript interacts with the DOM to change, add, or remove elements.
+
+---
+
+### Selecting Elements in the DOM
+
+- `getElementById('id')`: Returns the element with the specified ID.
+- `getElementsByClassName('class')`: Returns a **collection** of elements with the class name.
+- `getElementsByTagName('tag')`: Returns a **collection** of elements with the tag name.
+- `getElementsByName('name')`: Returns a **node list** of elements with the name attribute.
+- `querySelector('selector')`: Returns the first element matching the CSS selector.
+- `querySelectorAll('selector')`: Returns a **node list** of all elements matching the selector.
+
+```js
+var element = document.getElementById("myElement");
+var elements = document.getElementsByClassName("myClass");
+var elementsArray = Array.from(elements); // Convert HTMLCollection to array
+```
+
+---
+
+### Built-in Document Properties
+
+- `document.documentElement`: `<html>` element
+- `document.head`: `<head>` element
+- `document.body`: `<body>` element
+- `document.title`: Title of the document
+- `document.images`: Collection of `<img>` elements
+- `document.links`: Collection of `<a>` elements with `href`
+- `document.forms`: Collection of `<form>` elements
+- `document.scripts`: Collection of `<script>` elements
+- `document.styleSheets`: Collection of stylesheets
+
+---
+
+### Event Listeners
+
+- Listen for events and execute functions when events occur.
+- Syntax: `element.addEventListener(event, function)`
+- Example:
+
+```html
+<button id="myButton">Click me</button>
+```
+
+```js
+function sayHello() {
+    console.log("Hello!");
+}
+document.getElementById("myButton").addEventListener("click", sayHello);
+```
+
+- Use anonymous functions to pass parameters:
+
+```js
+button.addEventListener("click", function () {
+    sayHello("John");
+});
+```
+
+---
+
+### addEventListener vs element.event
+
+- `addEventListener` allows multiple listeners for the same event.
+- `element.onclick = ...` only allows one listener per event type.
+
+---
+
+### Event Object
+
+- Contains info about the event: `type`, `target`, `clientX`, `clientY`, `keyCode`, etc.
+- Example:
+
+```js
+document.getElementById("myButton").addEventListener("click", function (event) {
+    console.log(event);
+});
+```
+
+---
+
+### Common Events
+
+- Mouse: `click`, `dblclick`, `mousemove`, `mouseenter`, `mouseleave`, `mouseup`, `mousedown`, `mouseover`, `mouseout`, `scroll`, `drag`, `dragstart`, `dragend`
+- Keyboard: `keyup`, `keydown`, `keypress`
+- Input/Form: `input`, `change`, `submit`
+- Focus: `focus`, `blur`
+
+---
+
+### Changing Element Styles
+
+- Use the `style` property:
+
+```js
+var element = document.getElementById("myElement");
+element.style.backgroundColor = "red";
+element.style.cssText = "background-color: red; color: white; font-size: 20px;";
+```
+
+- Inline styles override external CSS unless `!important` is used.
+
+---
+
+### Get, Set, Remove Attributes
+
+- `setAttribute(name, value)`, `getAttribute(name)`, `removeAttribute(name)`
+
+```js
+var img = document.getElementById("myImage");
+img.setAttribute("src", "image.jpg");
+img.setAttribute("alt", "My Image");
+console.log(img.getAttribute("src"));
+img.removeAttribute("alt");
+```
+
+---
+
+### classList Property
+
+- `add`, `remove`, `toggle`, `replace`, `contains` classes on an element.
+
+```js
+var element = document.getElementById("myElement");
+element.classList.add("myClass");
+element.classList.remove("myClass");
+element.classList.toggle("myClass");
+var hasClass = element.classList.contains("myClass");
+element.classList.replace("oldClass", "newClass");
+```
+
+---
+
+### Event Propagation
+
+- **Bubbling:** Event starts at target and bubbles up to root.
+- **Capturing:** Event starts at root and goes down to target.
+- Use `addEventListener(event, handler, useCapture)` to control propagation.
+- Stop propagation with `event.stopPropagation()`.
+
+---
+
+### innerHTML vs innerText
+
+- `innerHTML`: Gets/sets HTML content (renders tags).
+- `innerText`: Gets/sets text content (renders tags as text).
+
+```html
+<p id="example">My <strong>example</strong> paragraph</p>
+```
+
+```js
+var example = document.getElementById("example");
+console.log(example.innerHTML); // My <strong>example</strong> paragraph
+console.log(example.innerText); // My example paragraph
+```
+
+---
+
+### Creating Elements
+
+- Use `document.createElement('tag')` to create new elements.
+- Set attributes with `setAttribute` or dot notation.
+- Append/prepend with `append()`, `prepend()`.
+- Add before/after with `before()`, `after()`.
+
+```js
+var parent = document.getElementById("parent");
+var newElement = document.createElement("p");
+newElement.innerText = "New paragraph";
+parent.append(newElement);
+```
+
+---
+
+### Traversing the DOM
+
+<!-- - `parentElement`, `parentNode`: Get parent
+- `firstElementChild`, `lastElementChild`: Get first/last child element
+- `children`: HTMLCollection of child elements
+- `childNodes`: NodeList of child nodes
+- `nextElementSibling`, `previousElementSibling`: Next/previous sibling element
+- `nextSibling`, `previousSibling`: Next/previous sibling node -->
+
+---
+
+### NodeList vs HTMLCollection
+
+| NodeList                                     | HTMLCollection                                 |
+| -------------------------------------------- | ---------------------------------------------- |
+| Static (does not update)                     | Live (updates with DOM)                        |
+| List of nodes                                | List of elements                               |
+| Can include text, comment nodes              | Only elements                                  |
+| Returned by `querySelectorAll`, `childNodes` | Returned by `getElementsByTagName`, `children` |
