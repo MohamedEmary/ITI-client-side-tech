@@ -971,12 +971,14 @@ parent.append(newElement);
 
 ### Traversing the DOM
 
-<!-- - `parentElement`, `parentNode`: Get parent
+- `parentElement`, `parentNode`: Get parent
 - `firstElementChild`, `lastElementChild`: Get first/last child element
 - `children`: HTMLCollection of child elements
 - `childNodes`: NodeList of child nodes
 - `nextElementSibling`, `previousElementSibling`: Next/previous sibling element
-- `nextSibling`, `previousSibling`: Next/previous sibling node -->
+- `nextSibling`, `previousSibling`: Next/previous sibling node
+
+In most cases `parentElement`, returns the same as `parentNode`, but if the element doesn't have a parent, `parentElement` will return `null`, while `parentNode` will return document node.
 
 ---
 
@@ -984,7 +986,267 @@ parent.append(newElement);
 
 | NodeList                                     | HTMLCollection                                 |
 | -------------------------------------------- | ---------------------------------------------- |
-| Static (does not update)                     | Live (updates with DOM)                        |
+| Static or Live                               | Live (updates with DOM)                        |
 | List of nodes                                | List of elements                               |
 | Can include text, comment nodes              | Only elements                                  |
 | Returned by `querySelectorAll`, `childNodes` | Returned by `getElementsByTagName`, `children` |
+
+---
+
+```html
+<ul id="fruits">
+    <li>Apple</li>
+    <!-- Comment -->
+    <li>Banana</li>
+</ul>
+
+<script>
+    var itemsNode = document.querySelectorAll("#fruits li"); // static NodeList
+    var itemsCollection = document
+        .getElementById("fruits")
+        .getElementsByTagName("li"); // live HTMLCollection
+
+    console.log(itemsNode, itemsNode.length);
+    console.log(itemsCollection, itemsCollection.length);
+
+    var newItem = document.createElement("li");
+    newItem.textContent = "Cherry";
+    document.getElementById("fruits").appendChild(newItem);
+
+    console.log(itemsNode, itemsNode.length);
+    console.log(itemsCollection, itemsCollection.length);
+
+    console.log("====================================");
+
+    var fruits = document.querySelector("#fruits");
+    console.log("children = ", fruits.children.length, fruits.children);
+    console.log("childNodes = ", fruits.childNodes.length, fruits.childNodes);
+
+    var newFruit = document.createElement("li");
+    newFruit.textContent = "Mango";
+    fruits.appendChild(newFruit);
+
+    console.log("children = ", fruits.children.length, fruits.children);
+    console.log(
+        "childNodes = ",
+        fruits.childNodes.length,
+        fruits.childNodes // childNodes is a live NodeList
+    );
+</script>
+```
+
+---
+
+### `TextContent` vs `innerText` vs `innerHTML` Example
+
+```html
+<div id="example">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    Hello
+    <span class="hidden">Hidden text</span>
+    <span> Multiple Spaces </span>
+</div>
+
+<script>
+    const div = document.getElementById("example");
+
+    console.log(div.innerText); // "Hello Multiple Spaces"
+    console.log(div.innerHTML);
+    // .hidden { display: none; }  Hello  Hidden text Multiple Spaces
+    console.log(div.textContent);
+
+    // div.textContent = "Hello   <b>World</b>\n\n!";
+    // div.innerText = "Hello   <b>World</b>\n\n!";
+    // div.innerHTML = "Hello   <b>World</b>\n\n!";
+</script>
+```
+
+---
+
+## BOM (Browser Object Model)
+
+Browser Object Model or BOM is a set of objects provided by the browser to interact with the browser itself.
+
+DOM can be accessed from the BOM using `window.document`.
+
+`window` is a **super global object**.
+
+---
+
+Because `window` a super global object, you can access its properties and methods directly without referencing `window`:
+
+```js
+// These are equivalent:
+window.alert("Hello");
+alert("Hello");
+
+// Global variables become window properties
+var message = "Hi";
+console.log(window.message); // "Hi"
+
+// Global functions become window methods
+function greet() {
+    console.log("Hello");
+}
+window.greet(); // Same as just calling greet()
+```
+
+---
+
+## BOM Methods & Properties
+
+Some of the BOM methods include:
+
+### `setInterval`
+
+`setInterval()`: Calls a function or evaluates an expression each time a specified number of milliseconds elapses.
+
+```js
+function incrementCounter() {
+    console.log(counter);
+    counter++;
+}
+
+var counter = 0;
+var interval = setInterval(incrementCounter, 1000);
+```
+
+---
+
+### `clearInterval`
+
+`clearInterval()`: Stops the intervals set by `setInterval()`.
+
+```js
+var button = document.getElementById("stop");
+
+button.addEventListener("click", function () {
+    console.log("Counter stopped");
+    clearInterval(interval);
+});
+```
+
+---
+
+### `setTimeout`
+
+`setTimeout()`: Calls a function or evaluates an expression **once** after a specified number of milliseconds.
+
+```js
+function showMessage() {
+    console.log("Hello, world!");
+}
+
+setTimeout(showMessage, 3000);
+```
+
+---
+
+### `alert`
+
+`alert()`: Displays an alert box with a message and an OK button.
+
+```js
+alert("Hello, world!");
+```
+
+---
+
+### `open`
+
+`open()`: Opens a new browser window or a new tab.
+
+```js
+var googleBtn = document.getElementById("open");
+googleBtn.addEventListener("click", function () {
+    open("https://www.google.com", "_blank");
+});
+```
+
+`_blank` is the name of the target window. It specifies that the URL should be opened in a new tab and it's the default value. To open the URL in the same tab, use `_self`.
+
+`open` also has other parameters like `width`, `height`, `top`, `left`, etc.
+
+```js
+open(
+    "https://www.google.com", // or a local file path like "more-info.html"
+    "_blank",
+    "width=500,height=500,top=100,left=100"
+);
+```
+
+---
+
+### `close`
+
+`close()`: Closes the current window.
+
+```js
+// Global variable to store a reference to the opened window
+let openedWindow;
+
+function openWindow() {
+    openedWindow = window.open("more-info.htm");
+}
+
+function closeOpenedWindow() {
+    openedWindow.close();
+}
+```
+
+---
+
+### `innerWidth` and `innerHeight`
+
+These properties return the width and height of the browser's viewport (the visible area of the web page).
+
+```js
+console.log(window.innerWidth);
+console.log(window.innerHeight);
+```
+
+---
+
+### `screen` Object
+
+The `screen` object provides information about the user's screen.
+
+```js
+// Screen dimensions
+console.log(screen.width);
+console.log(screen.height);
+
+// Available screen area (excluding taskbar)
+console.log(screen.availWidth);
+console.log(screen.availHeight);
+
+// Show available screen positioning
+console.log(screen.availTop);
+console.log(screen.availLeft);
+```
+
+---
+
+### `location` Object
+
+The `location` object contains information about the current URL:
+
+- `location.href`: Returns the entire URL (eg. `https://example.com/path?query=123`)
+- `location.hostname`: Returns the domain name (eg. `example.com`)
+- `location.pathname`: Returns the path/filename (eg. `/path`)
+
+---
+
+### `history` Object
+
+The `history` object allows you to interact with the browser's session history.
+
+- `history.back()`: Goes back one page in history.
+- `history.forward()`: Goes forward one page in history.
+
+---
