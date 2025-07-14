@@ -1188,7 +1188,7 @@ open(
 
 ```js
 // Global variable to store a reference to the opened window
-let openedWindow;
+var openedWindow;
 
 function openWindow() {
     openedWindow = window.open("more-info.htm");
@@ -1250,3 +1250,164 @@ The `history` object allows you to interact with the browser's session history.
 - `history.forward()`: Goes forward one page in history.
 
 ---
+
+## Higher-Order Functions
+
+A higher-order function is a function that takes one or more functions as arguments or returns a function as its result.
+
+Higher-order functions take anonymous functions or arrow functions as arguments and use them to perform some operation.
+
+Examples of higher-order functions in JavaScript include:
+
+- `forEach`
+- `map`
+- `filter`
+- `reduce`
+- `find`
+
+---
+
+### `forEach`
+
+The `forEach` method is used to iterate over an array and execute a function for each element.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// Using anonymous function
+numbers.forEach(function (number) {
+    console.log(number);
+});
+```
+
+The code above is equivalent to:
+
+```js
+for (var i = 0; i < numbers.length; i++) {
+    console.log(numbers[i]);
+}
+```
+
+---
+
+Example of getting the sum using `forEach`:
+
+```js
+var numbers = [1, 2, 3, 4, 5];
+var sum = 0;
+
+numbers.forEach(function (number) {
+    return (sum += number);
+});
+
+console.log(sum); // 15
+```
+
+---
+
+Example with `getElementsByTagName`:
+
+```html
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+```
+
+```js
+const items = document.getElementsByTagName("li");
+
+items.forEach(function (item) {
+    item.addEventListener("click", function () {
+        console.log(item.textContent);
+    });
+});
+```
+
+> **Note:** The `forEach` works with NodeLists but not with HTMLCollections. If you want to use `forEach` with `getElementsByTagName`, you need to convert the HTMLCollection to an array first or just use `querySelectorAll` instead or convert the HTMLCollection to an array using `Array.from()`.
+
+---
+
+### `map`
+
+The `map` method creates and returns a **new array** by applying a function to each element of an existing array.
+
+```js
+var numbers = [1, 2, 3, 4, 5];
+var doubled = numbers.map(function (number) {
+    return number * 2;
+});
+console.log(doubled); // [2, 4, 6, 8, 10]
+```
+
+---
+
+Example with objects:
+
+```js
+var products = [
+    { name: "iPhone", price: 1000 },
+    { name: "iPad", price: 500 },
+    { name: "MacBook", price: 2000 },
+];
+
+var prices = products.map(function (product) {
+    return product.name + " Price is " + product.price;
+});
+
+console.log(prices); // ["iPhone Price is $1000", ...]
+```
+
+---
+
+### `filter`
+
+The `filter` method creates and returns a **new array** with elements that pass a test function.
+
+```js
+var numbers = [1, 2, 3, 4, 5];
+var even = numbers.filter(function (number) {
+    return number % 2 === 0;
+});
+console.log(even); // [2, 4]
+```
+
+<br>
+
+### `find`
+
+The `find` method returns the first element that satisfies a test function.
+
+```js
+var words = ["apple", "banana", "cherry"];
+var found = words.find(function (word) {
+    return word.length > 5;
+});
+console.log(found); // 'banana'
+```
+
+---
+
+### `reduce`
+
+The `reduce` method reduces an array to a **single value** by executing a function on each element.
+
+```js
+arr.reduce(callback, initialValue);
+```
+
+The reducer callback function takes four arguments:
+
+1. Accumulator
+2. Current Value
+3. Current Index
+4. Source Array
+
+```js
+var numbers = [1, 2, 3, 4, 5];
+var sum = numbers.reduce(function (acc, curr) {
+    return acc + curr;
+}, 0);
+console.log(sum); // 15
+```
