@@ -1053,7 +1053,7 @@ In most cases `parentElement`, returns the same as `parentNode`, but if the elem
 </div>
 
 <script>
-    const div = document.getElementById("example");
+    var div = document.getElementById("example");
 
     console.log(div.innerText); // "Hello Multiple Spaces"
     console.log(div.innerHTML);
@@ -1274,7 +1274,7 @@ Examples of higher-order functions in JavaScript include:
 The `forEach` method is used to iterate over an array and execute a function for each element.
 
 ```js
-const numbers = [1, 2, 3, 4, 5];
+var numbers = [1, 2, 3, 4, 5];
 
 // Using anonymous function
 numbers.forEach(function (number) {
@@ -1318,7 +1318,7 @@ Example with `getElementsByTagName`:
 ```
 
 ```js
-const items = document.getElementsByTagName("li");
+var items = document.getElementsByTagName("li");
 
 items.forEach(function (item) {
     item.addEventListener("click", function () {
@@ -1739,3 +1739,379 @@ try {
     console.log("SyntaxError example:", e.message);
 }
 ```
+
+---
+
+## Web Storage
+
+### Local Storage vs Session Storage
+
+Both Web Storage APIs provide client-side storage mechanisms:
+
+- **Local Storage:** Persists even after browser closes
+- **Session Storage:** Cleared when page session ends
+
+Both have 5MB storage limit.
+
+---
+
+### Local Storage Methods
+
+```js
+// Setting items
+localStorage.setItem("username", "John");
+
+// Getting items
+var username = localStorage.getItem("username");
+
+// Removing specific item
+localStorage.removeItem("username");
+
+// Clearing all items
+localStorage.clear();
+
+// Getting number of items
+console.log(localStorage.length);
+
+// Getting key by index
+console.log(localStorage.key(0));
+```
+
+---
+
+### Session Storage Methods
+
+Same methods as Local Storage:
+
+```js
+// Setting items
+sessionStorage.setItem("tempData", "value");
+
+// Getting items
+var data = sessionStorage.getItem("tempData");
+
+// Removed when browser/tab closes
+```
+
+---
+
+### Storing Complex Data Types
+
+Objects and arrays must be stringified:
+
+```js
+// Storing object
+var user = { name: "John", age: 30 };
+localStorage.setItem("user", JSON.stringify(user));
+
+// Retrieving object
+var storedUser = JSON.parse(localStorage.getItem("user"));
+
+// Storing array
+var items = ["apple", "banana"];
+localStorage.setItem("items", JSON.stringify(items));
+```
+
+---
+
+### Best Practices
+
+- Don't store sensitive data
+- Use for non-critical data like:
+    - User preferences
+    - UI state
+    - Non-sensitive form data
+    - Theme settings
+
+---
+
+## Cookies
+
+### What are Cookies?
+
+- Small text files stored on client's computer
+- Limited to about 4KB of data
+- Can be secured and restricted to specific domains
+- Have expiration dates
+
+---
+
+### Cookie Properties
+
+```js
+// Basic structure
+document.cookie =
+    "username=John; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/";
+```
+
+Key properties:
+
+- **name=value**: The actual data
+- **expires**: When the cookie should be deleted
+- **path**: What pages can access the cookie
+- **domain**: What domains can access the cookie
+- **secure**: Only sent over HTTPS
+- **HttpOnly**: Cannot be accessed by JavaScript
+
+---
+
+### Cookies vs Web Storage
+
+| Feature                 | Cookies      | Local Storage | Session Storage |
+| ----------------------- | ------------ | ------------- | --------------- |
+| Capacity                | ~4KB         | ~5MB          | ~5MB            |
+| Expiry                  | Configurable | Never         | Tab close       |
+| Server Access           | Yes          | No            | No              |
+| Auto-sent with Requests | Yes          | No            | No              |
+| API Complexity          | Complex      | Simple        | Simple          |
+| Storage Type            | String only  | String only   | String only     |
+
+---
+
+- **Cookies:**
+    - Use `HttpOnly` for sensitive data
+    - Set `Secure` flag for HTTPS (encrypted requests)
+    - Be careful with expiration dates
+    - More secure than so can be used to store Authentication tokens
+    - Small amounts of data
+
+- **Web Storage:**
+    - No encryption by default
+    - Never store sensitive data
+    - Large amounts of data
+    - Client-side only
+
+---
+
+## Object Oriented Programming (OOP)
+
+OOP is a programming paradigm based on objects. It makes your code more organized, easier to read, and maintain.
+
+The most important advantage of OOP is that it simulates the real world. It allows you to break down your software into smaller parts, making it easier to solve complex problems.
+
+For example to model a hospital management system, you can create classes for `Doctor`, `Patient`, `Nurse`, `Receptionist`, etc.
+
+There are two main ways to implement OOP:
+
+- **Class based OOP** (Most Programming Languages): In this paradigm, we use classes to define objects. A class is a blueprint for creating objects. An object is an instance of a class.
+- **Prototype based OOP** (Used in JS): In this paradigm, we use prototypes to define objects. A prototype is a template object that an object inherits properties and methods from.
+
+---
+
+### Class based OOP
+
+In class based OOP, we create classes for the important entities in our application, and then we create objects from these classes.
+
+For example, to model the hospital management system, we can create a class for `Doctor` and then create an object for each doctor, same with `Patient`, `Nurse`, etc.
+
+Each doctor should have a `name`, `age`, and `salary`. We can define these properties in the `Doctor` class.
+
+---
+
+```js
+class Doctor {
+    constructor(name, age, salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    sayHi() {
+        console.log("Hi, I am " + this.name);
+    }
+
+    getSalary() {
+        console.log("My salary is " + this.salary);
+    }
+}
+
+let drAhmed = new Doctor("Ahmed", 30, 5000);
+let drAli = new Doctor("Ali", 35, 6000);
+drAhmed.sayHi(); // Hi, I am Ahmed
+drAli.sayHi(); // Hi, I am Ali
+```
+
+---
+
+### Prototype based OOP
+
+Consider this function:
+
+```js
+function Doctor(name, age, salary) {
+    let doctor = {};
+    doctor.name = name;
+    doctor.age = age;
+    doctor.salary = salary;
+    return doctor;
+}
+let drAhmed = Doctor("Ahmed", 30, 5000);
+```
+
+In this example, `Doctor` is a function that creates a doctor object.
+
+---
+
+#### Constructor Functions
+
+In JS, we use constructor functions to create objects. A constructor function is like a blueprint for creating objects.
+
+```js
+function Doctor(name, age, salary) {
+    this.name = name;
+    this.age = age;
+    this.salary = salary;
+}
+let drAhmed = new Doctor("Ahmed", 30, 5000);
+```
+
+This is the same as the previous example, but we use the `new` operator to create the object, and `this` to refer to the object being created.
+
+To create functions that are shared between all objects created from a constructor function, we use the `prototype` property.
+
+---
+
+```js
+function Doctor(name, age, salary) {
+    this.name = name;
+    this.age = age;
+    this.salary = salary;
+}
+
+Doctor.prototype.sayHi = function () {
+    console.log("Hi, I am " + this.name);
+};
+
+Doctor.prototype.getSalary = function () {
+    console.log("My salary is " + this.salary);
+};
+
+let drAhmed = new Doctor("Ahmed", 30, 5000);
+let drAli = new Doctor("Ali", 35, 6000);
+drAhmed.sayHi(); // Hi, I am Ahmed
+drAli.sayHi(); // Hi, I am Ali
+```
+
+---
+
+**But why not to just add the functions directly to the object like what we did with the properties?**
+
+- Because if we have many objects, each object will have its own copy of the function which is a waste of memory.
+- With properties it's fine because each object has its own values for the properties, for example the `name` is different for each object, but with functions it's the same implementation for all objects, so no need to have a copy for each object.
+
+---
+
+### Main OOP Concepts
+
+#### Inheritance
+
+Inheritance is a mechanism that allows you to eliminate redundant code by reusing existing classes. It allows you to create a new class that is based on an existing class.
+
+For example, we can create a class for `Employee` and then create a class for `Doctor` that inherits from `Employee`.
+
+---
+
+```js
+class Employee {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    sayHi() {
+        console.log("Hi, I am " + this.name);
+    }
+}
+
+class Doctor extends Employee {
+    constructor(name, age, salary) {
+        super(name, age);
+        this.salary = salary;
+    }
+
+    getSalary() {
+        console.log("My salary is " + this.salary);
+    }
+}
+
+let drAhmed = new Doctor("Ahmed", 30, 5000);
+drAhmed.sayHi(); // Hi, I am Ahmed
+drAhmed.getSalary(); // My salary is 5000
+```
+
+---
+
+If we have the same variable or function in both the parent and child class, the variable or function in the child class will override the variable or function in the parent class (Polymorphism).
+
+---
+
+#### Polymorphism
+
+Polymorphism is a feature that allows you to use a single interface to represent different data types.
+
+For example, we can have a `sayHi` function in the `Employee` class and a `sayHi` function in the `Doctor` class. When we call `sayHi` on a `Doctor` object, it will call the `sayHi` function in the `Doctor` class, not the one in the `Employee` class.
+
+---
+
+```js
+class Employee {
+    sayHi() {
+        console.log("Hi, I am an employee");
+    }
+}
+
+class Doctor extends Employee {
+    sayHi() {
+        console.log("Hi, I am a doctor");
+    }
+}
+
+let drAhmed = new Doctor();
+drAhmed.sayHi(); // Hi, I am a doctor
+```
+
+Polymorphism has two types:
+
+- **Overloading**: Same function name with different parameters.
+- **Overriding**: Same function name with the same parameters. (In JS we only have overriding).
+
+---
+
+#### Access Modifiers
+
+Access modifiers are keywords that set the accessibility of properties and methods in a class.
+
+- **Public**: Accessible from anywhere. (Default).
+- **Private**: Not accessible from outside the class. (use `#` before the property or method name ex: `this.#name`).
+- **Protected**: Accessible within the class and its subclasses. (Not available in JS).
+
+---
+
+```js
+class Employee {
+    #name; // Private property
+
+    constructor(name, age) {
+        this.#name = name;
+        this.age = age;
+    }
+
+    #sayHi() {
+        // Private method
+        console.log("Hi, I am " + this.#name);
+    }
+
+    sayHi() {
+        this.#sayHi();
+    }
+}
+
+let emp = new Employee("Ahmed", 30);
+console.log(emp.age); // 30
+// console.log(emp.#name); // Syntax Error
+emp.sayHi(); // Hi, I am Ahmed
+```
+
+---
+
+Notice that we can't access the private property `#name` from outside the class.
