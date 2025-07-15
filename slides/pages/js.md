@@ -1239,6 +1239,8 @@ The `location` object contains information about the current URL:
 - `location.href`: Returns the entire URL (eg. `https://example.com/path?query=123`)
 - `location.hostname`: Returns the domain name (eg. `example.com`)
 - `location.pathname`: Returns the path/filename (eg. `/path`)
+- `location.protocol`: Returns the protocol (eg. `https:`)
+- `location.search`: Returns the part after the pathname (eg. `?q=....`)
 
 ---
 
@@ -1410,4 +1412,330 @@ var sum = numbers.reduce(function (acc, curr) {
     return acc + curr;
 }, 0);
 console.log(sum); // 15
+```
+
+---
+
+## APIs
+
+API (Application Programming Interface) is a universal way for different software applications to communicate with each other.
+
+- **Receive** data from a server
+- **Send** data to a server
+- **Modify** data on a server
+- **Delete** data from a server
+
+The API comes in the form of a URL that you can send a request to and get a response from.
+
+---
+
+### Working with APIs
+
+- Front-end developers use APIs provided by back-end developers
+- APIs come with documentation ([Example API documentation](https://forkify-api.herokuapp.com/))
+- Tools like [Postman](https://www.postman.com/), and Thunder Client extension on VSCode can be used to test APIs
+
+---
+
+### JSON
+
+JSON (JavaScript Object Notation) is the common format for API responses:
+
+- Human-readable key/value pairs
+- Can be parsed by JavaScript
+- Can be objects or arrays of objects
+
+Example:
+
+```json
+{
+    "name": "Mohamed",
+    "age": 30,
+    "city": "Cairo"
+}
+```
+
+---
+
+### Free APIs for Practice
+
+Some popular free APIs:
+
+- [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
+- [Forkify Meals API](https://forkify-api.herokuapp.com/)
+- [Random User Generator](https://randomuser.me/documentation)
+- [Weather API](https://www.weatherapi.com/)
+- [News API](https://newsapi.org/)
+- [MovieDB API](https://www.themoviedb.org/documentation/api)
+- [Fake Store API](https://fakestoreapi.com/)
+
+Find more on [public-apis GitHub repo](https://github.com/public-apis/public-apis)
+
+---
+
+### API Terminology
+
+Using `https://api.github.com/users/Microsoft` as an example:
+
+- **Base URL**: Main URL (`https://api.github.com/`)
+- **Endpoint**: Resource path (`/users/Microsoft`)
+- **Response**: Data returned by API
+- **Status Code**: Result indicator (200, 404, etc.)
+- **Method**: Type of request (`GET`, `POST`, etc.)
+
+---
+
+### HTTP Methods
+
+Common API request methods:
+
+- `GET`: Retrieve data
+- `POST`: Create new data
+- `PUT`: Update entire resource
+- `PATCH`: Partial update
+- `DELETE`: Remove data
+
+---
+
+### Using `XMLHttpRequest`
+
+Basic structure for making API requests:
+
+```js
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "API_URL");
+xhr.send();
+
+xhr.addEventListener("load", function () {
+    var data = JSON.parse(xhr.response);
+    console.log(data);
+});
+```
+
+---
+
+### Request States
+
+`readyState` values:
+
+```js
+0: // request not initialized
+1: // server connection established
+2: // request sent
+3: // processing request
+4: // request finished and response ready
+```
+
+Status codes:
+
+```js
+200: // OK (success)
+403: // Forbidden
+404: // Not Found
+500: // Server Error
+```
+
+---
+
+### Complete API Request Example
+
+```js
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://forkify-api.herokuapp.com/api/search?q=pizza");
+xhr.send();
+
+xhr.addEventListener("readystatechange", function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var data = JSON.parse(xhr.response);
+        console.log(data.recipes);
+    }
+});
+
+xhr.addEventListener("error", function () {
+    console.log("An error occurred");
+});
+```
+
+---
+
+### Displaying API Data
+
+HTML: `<div class="container"></div>`
+
+JavaScript:
+
+```js
+var xhr = new XMLHttpRequest();
+var allRecipes = [];
+
+xhr.open("GET", "https://forkify-api.herokuapp.com/api/search?q=pizza");
+xhr.send();
+
+xhr.addEventListener("readystatechange", function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        allRecipes = JSON.parse(xhr.response).recipes;
+        display();
+    }
+});
+```
+
+---
+
+Display function:
+
+```js
+function display() {
+    var content = "<ul>";
+    for (var i = 0; i < allRecipes.length; i++) {
+        content += "<li>" + allRecipes[i].title + "</li>";
+    }
+    content += "</ul>";
+    document.getElementsByClassName("container")[0].innerHTML = content;
+}
+```
+
+---
+
+## Error Handling
+
+### try, catch, and finally
+
+JavaScript provides error handling mechanisms through:
+
+- `try`: Define code to test for errors
+- `catch`: Handle any errors that occur
+- `finally`: Execute code after try/catch, regardless of outcome
+
+Basic syntax:
+
+```js
+try {
+    // Code that might throw an error
+} catch (error) {
+    // Handle the error
+} finally {
+    // Always executes
+}
+```
+
+---
+
+### Error Handling with Async Code
+
+Commonly used with asynchronous operations:
+
+```js
+try {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api.example.com/data");
+    xhr.send();
+
+    xhr.addEventListener("readystatechange", function () {
+        try {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.response);
+                    console.log(data);
+                } else {
+                    throw new Error(
+                        "Request failed with status: " + xhr.status
+                    );
+                }
+            }
+        } catch (error) {
+            console.error("Error processing response:", error);
+        }
+    });
+} catch (error) {
+    console.error("Error setting up request:", error);
+}
+```
+
+---
+
+### Error Object Properties
+
+The error object provides useful information:
+
+```js
+try {
+    console.log(x); // undefined variable
+} catch (error) {
+    console.error(error); // ReferenceError: x is not defined
+    console.log(error.name); // "ReferenceError"
+    console.log(error.message); // "x is not defined"
+} finally {
+    console.log("Finally block executed");
+}
+```
+
+---
+
+### Throwing Custom Errors
+
+You can throw specific types of errors:
+
+```js
+try {
+    throw new ReferenceError("This is a reference error");
+} catch (error) {
+    console.error(error); // ReferenceError: This is a reference error
+    console.error(error.name); // "ReferenceError"
+    console.error(error.message); // "This is a reference error"
+}
+```
+
+Common error types:
+
+- `Error()`
+- `ReferenceError()`
+- `TypeError()`
+- `RangeError()`
+- `SyntaxError()`
+
+---
+
+```js
+// Error()
+// Base class for all errors
+// Used for generic errors when no specific error type is more appropriate
+try {
+    throw new Error("This is a generic error");
+} catch (e) {
+    console.log("Error example:", e.message);
+}
+
+// ReferenceError()
+// Thrown when trying to access a variable that doesn't exist
+try {
+    console.log(undefinedVariable); // Variable doesn't exist
+} catch (e) {
+    console.log("ReferenceError example:", e.message);
+}
+
+// TypeError()
+// Thrown when an operation is performed on a value of the wrong type
+try {
+    var num = 42;
+    num.toLowerCase(); // Can't call toLowerCase() on a number
+} catch (e) {
+    console.log("TypeError example:", e.message);
+}
+
+// RangeError()
+// Thrown when a numeric value is outside the allowable range
+try {
+    var arr = new Array(-1); // Can't create array with negative length
+} catch (e) {
+    console.log("RangeError example:", e.message);
+}
+
+// SyntaxError()
+// Thrown when there's a syntax error in the code
+// Note: Most syntax errors can't be caught because they prevent the code from executing
+try {
+    eval("if (true) {"); // Incomplete if statement
+} catch (e) {
+    console.log("SyntaxError example:", e.message);
+}
 ```
