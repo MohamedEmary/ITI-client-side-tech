@@ -104,4 +104,9 @@ src: ./pages/css.md
 src: ./pages/js.md
 ---
 
+
+---
+src: ./pages/es6.md
+---
+
 <!-- prettier-ignore-end -->
