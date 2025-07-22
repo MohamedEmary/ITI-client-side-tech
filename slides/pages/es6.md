@@ -949,3 +949,513 @@ let user = {
 18. Write a generator function that catches an error thrown into it and returns a string. Show how to throw the error and get the result.
 
 19. Write a generator function that yields two values, then ends early using `.return()` and shows the result.
+
+---
+
+## JavaScript Modules
+
+- **Modules** allow you to split code into reusable files.
+- Each module has its own scope.
+
+---
+
+- Use `export` to expose variables/functions/classes:
+
+    ```js
+    // math.js
+    export function add(a, b) {
+        return a + b;
+    }
+    export const PI = 3.14;
+
+    // or write the export at the end
+    export { add, PI };
+    ```
+
+- Use `import` to use them in another file:
+
+    ```js
+    import { add, PI } from "./math.js";
+
+    // to import functions with a different name
+    import { add as sum, PI as pi } from "./math.js";
+    ```
+
+---
+
+- Modules are supported in browsers (with `<script type="module">`).
+
+> Note: You should use live server to run modules in the browser.
+
+---
+
+## Blocking vs Non-blocking
+
+- **Blocking**: Code execution stops and waits for a task to finish before moving on.
+    - Example: `alert("Hello")` blocks the code until the user clicks "OK".
+    - Blocking code can freeze the UI.
+- **Non-blocking**: Code can start a task and continue running other code while waiting for the task to finish.
+    - Example: `setTimeout(() => console.log("Done"), 1000)` allows the code to continue running while waiting for the timeout.
+    - Non-blocking code keeps apps responsive.
+
+---
+
+## Synchronous vs Asynchronous
+
+- **Synchronous**: Tasks are performed one after another. Each step waits for the previous one to finish.
+    - Example:
+        ```js
+        console.log("A");
+        console.log("B");
+        // Output: A B
+        ```
+    - Synchronous code is simple but can block the main thread.
+- **Asynchronous**: Tasks can start and finish at different times. The program can continue running while waiting for tasks to complete.
+    - Example:
+        ```js
+        console.log("A");
+        setTimeout(() => console.log("B"), 1000);
+        console.log("C");
+        // Output: A C B
+        ```
+    - Asynchronous code uses callbacks, promises, or async/await.
+
+---
+
+## Single-threaded vs Multithreaded
+
+- **Single-threaded**: Only one task runs at a time. JavaScript runs on a single main thread.
+    - All code shares the same thread, so only one thing happens at a time.
+    - If a task takes too long, it can block everything else.
+- **Multithreaded**: Multiple tasks run in parallel on different threads.
+    - Possible with Web Workers (in browsers).
+    - Useful for heavy computations or background tasks.
+
+---
+
+## JavaScript: Single-threaded, Non-blocking, Asynchronous
+
+- **JavaScript is:**
+    1. Single-threaded: All code runs on one main thread.
+    2. Non-blocking: Uses the event loop to handle tasks without freezing the main thread.
+    3. Asynchronous: Can run tasks in the background and respond when they're done (using callbacks, promises, async/await).
+- The **event loop** lets JS handle many tasks efficiently, like responding to user input, network requests, and timers, all without blocking the main thread.
+
+---
+
+## JS Runtime Environment vs JS Engine
+
+- **JS Engine**: The part that reads and executes JavaScript code. Examples: V8 (Chrome, Node.js), SpiderMonkey (Firefox), JavaScriptCore (Safari).
+    - Handles parsing, compiling, and running JS code.
+- **JS Runtime Environment**: The engine plus all the extra features provided by the host (browser).
+    - Includes APIs like DOM (for web pages), timers (`setTimeout`), networking, file system, etc.
+    - The runtime lets you build real applications by providing tools beyond the core language.
+- In summary: The engine runs JS code; the runtime provides everything else you need to build apps.
+
+---
+
+## Microtasks and Macrotasks
+
+- JavaScript uses an **Event Loop** and two task queues:
+
+Macrotasks:
+
+- `setTimeout()` and `setInterval()` callbacks.
+- I/O operations (e.g., network requests, file reading).
+- UI rendering and user interactions (e.g., click events).
+
+Microtasks:
+
+- Promise callbacks (`.then()`, `.catch()`, `.finally()`).
+- Code after an `await` expression.
+- `queueMicrotask()`.
+- `MutationObserver` callbacks.
+
+---
+
+- **Order of Execution**:
+    1. Current synchronous code (call stack)
+    2. All micro tasks
+    3. One macro task
+    4. Repeat steps 2-3
+
+---
+
+### Examples: Understanding Task Order
+
+Example 1:
+
+```js {monaco-run}
+console.log("Start"); // 1
+
+setTimeout(() => {
+    console.log("Timeout"); // 5
+}, 0);
+
+Promise.resolve().then(() => console.log("Promise 1")); // 3
+
+queueMicrotask(() => {
+    console.log("Microtask"); // 4
+});
+
+console.log("End"); // 2
+```
+
+---
+
+Example 2: Synchronous Code
+
+```js {monaco-run}
+console.log("First");
+console.log("Second");
+console.log("Third");
+```
+
+---
+
+Example 3: Macro Task (setTimeout)
+
+```js {monaco-run}
+console.log("Start");
+setTimeout(() => console.log("Timeout"), 0);
+console.log("End");
+```
+
+---
+
+Example 4: Micro Task vs Macro Task
+
+```js {monaco-run}
+console.log("Start");
+setTimeout(() => console.log("Timeout"), 0);
+Promise.resolve().then(() => console.log("Promise"));
+console.log("End");
+```
+
+---
+
+Example 5: Multiple Tasks of Each Type
+
+```js {monaco-run}
+console.log("Start");
+
+Promise.resolve().then(() => console.log("Promise 1"));
+Promise.resolve().then(() => console.log("Promise 2"));
+
+setTimeout(() => console.log("Timeout 1"), 0);
+setTimeout(() => console.log("Timeout 2"), 0);
+
+console.log("End");
+```
+
+---
+
+Example 6: Nested Tasks
+
+```js {monaco-run}
+console.log("Start");
+
+setTimeout(() => console.log("Timeout 1"), 0);
+
+Promise.resolve()
+    .then(() => {
+        console.log("Promise 1");
+        setTimeout(() => console.log("Timeout 2"), 0);
+        return Promise.resolve();
+    })
+    .then(() => console.log("Promise 2"));
+
+console.log("End");
+```
+
+---
+
+Example 7: Async/Await and Task Order
+
+```js {monaco-run}
+async function foo() {
+    console.log("1");
+    await Promise.resolve();
+    console.log("2");
+}
+
+console.log("Start");
+foo();
+Promise.resolve().then(() => console.log("3"));
+console.log("End");
+```
+
+---
+
+Example 8: Nested Promise and Timeout
+
+```js {monaco-run}
+console.log("Start");
+
+Promise.resolve()
+    .then(() => {
+        console.log("Promise 1");
+        return Promise.resolve();
+    })
+    .then(() => {
+        console.log("Promise 2");
+        setTimeout(() => console.log("Timeout 1"), 0);
+    });
+
+setTimeout(() => {
+    console.log("Timeout 2");
+    Promise.resolve().then(() => console.log("Promise 3"));
+}, 0);
+
+console.log("End");
+```
+
+---
+
+### Why This Matters
+
+- Understanding task queues helps with:
+    - Optimizing application performance
+    - Avoiding race conditions
+    - Managing UI updates efficiently
+    - Debugging async code behavior
+- Micro tasks have priority over macro tasks
+- Each macro task starts with a fresh micro task queue
+
+---
+
+### JS Runtime Environment
+
+<img src="../assets/images/es6/js-runtime-env.png" alt="JS Runtime Environment" class="h-[93%] mt-3 m-auto">
+
+---
+
+### Web APIs
+
+<img src="../assets/images/es6/web-apis.png" alt="Web APIs" class="h-[93%] mt-3 m-auto">
+
+---
+
+## Callback Hell
+
+- **Callback hell** happens when you have many nested callbacks, making code hard to read and maintain.
+- Common in older async JS (e.g., with `setTimeout`, AJAX, etc.).
+- Example:
+    ```js
+    setTimeout(() => {
+        console.log("Step 1");
+        setTimeout(() => {
+            console.log("Step 2");
+            setTimeout(() => {
+                console.log("Step 3");
+            }, 1000);
+        }, 1000);
+    }, 1000);
+    // Hard to read and debug!
+    ```
+- Callback hell makes error handling and logic flow difficult.
+
+---
+
+## Promises: The Singer and the Fans Analogy
+
+- Imagine you’re a famous singer. Fans want your new song, but it’s not ready yet.
+- You promise to send it when it’s published. Fans give you their emails (subscribe).
+- When the song is ready, everyone gets it. If something goes wrong, fans are notified.
+- In programming:
+    - The "singer" is the code that produces a result (maybe after some time).
+    - The "fans" are code that wants the result when it’s ready.
+    - The **promise** is the subscription list that connects them.
+
+---
+
+## What is a Promise?
+
+- A **promise** is a special JavaScript object that links producing code (singer) and consuming code (fans).
+- The producing code does something (maybe takes time), then calls `resolve(result)` for success or `reject(error)` for failure.
+- The consuming code can subscribe to the result using `.then`, `.catch`, and `.finally`.
+
+---
+
+## Promise States
+
+- **Pending**: The job is still running.
+- **Fulfilled**: The job finished successfully (`resolve`).
+- **Rejected**: The job failed (`reject`).
+
+---
+
+## Creating a Promise
+
+- The syntax:
+    ```js
+    let promise = new Promise(function (resolve, reject) {
+        // producing code (the singer)
+        // call resolve(value) if successful
+        // call reject(error) if failed
+    });
+    ```
+- Example: a promise that resolves after 1 second:
+    ```js
+    let promise = new Promise(function (resolve, reject) {
+        setTimeout(() => resolve("done"), 1000);
+    });
+    ```
+- Example: a promise that rejects after 1 second:
+    ```js
+    let promise = new Promise(function (resolve, reject) {
+        setTimeout(() => reject(new Error("Whoops!")), 1000);
+    });
+    ```
+
+---
+
+## Using Promises: `.then`, `.catch`, `.finally`
+
+- `.then(success, error)` runs when the promise is fulfilled.
+    ```js
+    promise.then((result) => alert(result));
+    ```
+- `.catch(error)` is shorthand for handling errors:
+    ```js
+    promise.catch((error) => alert(error));
+    ```
+- `.finally()` runs no matter what, for cleanup:
+    ```js
+    promise.finally(() => alert("Promise finished"));
+    ```
+
+---
+
+## Example: Callback vs Promise
+
+- Old way (callback):
+
+```js
+let i = 1;
+const ul = document.querySelector("ul");
+
+setTimeout(() => {
+    ul.innerHTML += `<li>Item ${i++}</li>`;
+    setTimeout(() => {
+        ul.innerHTML += `<li>Item ${i++}</li>`;
+        setTimeout(() => {
+            ul.innerHTML += `<li>Item ${i++}</li>`;
+        }, 1000);
+    }, 1000);
+}, 1000);
+```
+
+---
+
+- With promises:
+
+```js
+const ul = document.querySelector("ul");
+let i = 1;
+function addLi() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const li = document.createElement("li");
+            li.textContent = `Item ${i++}`;
+            ul.appendChild(li);
+            resolve("item added successfully");
+        }, 1000);
+    });
+}
+addLi().then(addLi).then(addLi).then(addLi);
+```
+
+- Promises make it easier to read, chain, and handle errors compared to callbacks.
+
+---
+
+## Example: Promise Chaining
+
+- You can chain `.then()` calls to run multiple async steps in order
+
+```js
+function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+```
+
+---
+
+```js
+wait(1000)
+    .then(() => {
+        console.log("Step 1");
+        return wait(1000);
+    })
+    .then(() => {
+        console.log("Step 2");
+        return wait(1000);
+    })
+    .then(() => {
+        console.log("Step 3");
+    });
+```
+
+- Each `.then()` waits for the previous step to finish before running the next.
+- This makes async code readable and avoids callback hell.
+
+---
+
+## Async/Await
+
+- **async/await** is a modern way to write asynchronous code that looks like synchronous code.
+- `async` makes a function return a promise.
+- `await` pauses the function until the promise settles (fulfilled or rejected).
+- Analogy: You order food (async function), then you wait for it to arrive (`await`).
+
+---
+
+## Example: Using async/await
+
+```js
+function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function runSteps() {
+    await wait(1000);
+    console.log("Step 1");
+    await wait(1000);
+    console.log("Step 2");
+    await wait(1000);
+    console.log("Step 3");
+}
+
+runSteps();
+```
+
+- The code runs step by step, but each step waits for the previous one to finish.
+
+---
+
+## Fetch API
+
+- The **Fetch API** lets you make network requests (like getting data from a server) easily in modern browsers.
+- It returns a promise, so you can use `.then()` or `async/await`.
+- Commonly used to get JSON data from APIs.
+
+---
+
+## Example: Fetch with async/await
+
+```js
+async function getUser() {
+    const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users/1"
+    );
+    const user = await response.json();
+    console.log(user);
+}
+
+getUser();
+```
+
+- `fetch` gets the data from the server.
+- `await response.json()` converts the response to a JS object.
+- The code is easy to read and handles async tasks step by step.
