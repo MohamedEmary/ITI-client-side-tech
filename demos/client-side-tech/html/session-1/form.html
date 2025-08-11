@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<style>
+			/* body {
+				background-color: gold;
+			} */
+		</style>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<form method="get">
+			<!-- input field -->
+			<label>
+				Name:
+				<input required placeholder="eg. mohamed" name="namee" type="text" />
+			</label>
+			<br />
+
+			<select name="favColor" multiple>
+				<option value="red">Reddddd</option>
+				<option value="green">green</option>
+				<option value="blue">blue</option>
+				<option value="yellow">yellow</option>
+				<option value="black">black</option>
+			</select>
+			<br />
+			<br />
+			<br />
+			<select name="favColor">
+				<option value="red">Reddddd</option>
+				<option value="green">green</option>
+				<option value="blue" selected>blue</option>
+				<option value="yellow">yellow</option>
+				<option value="black">black</option>
+			</select>
+			<br />
+			<br />
+			<br />
+			<input type="file" accept="image/*" />
+			<input type="file" accept="video/*" />
+
+			<br />
+			<label for="tos-agreement"> Agree </label>
+			<input type="checkbox" id="tos-agreement" checked />
+
+			<br />
+			<!-- <input name="age" type="number" /> -->
+			<!-- <input name="favColor" type="color" /> -->
+			<br />
+
+			<p id="selection-paragraph" style="background-color: green; color: white">
+				Select your age
+			</p>
+			<label>
+				23
+				<input type="radio" name="age" value="23" />
+			</label>
+			<br />
+			<label>
+				24
+				<input type="radio" checked name="age" value="24" />
+			</label>
+			<br />
+			<label>
+				25
+				<input type="radio" name="age" value="25" />
+			</label>
+			<br />
+
+			<textarea
+				placeholder="this is an example"
+				rows="2"
+				cols="30"
+				name="msg"
+				minlength="3"
+				maxlength="10"
+				id=""></textarea
+			><br />
+			<input type="submit" />
+		</form>
+
+		<br />
+		<br />
+		<br />
+		<br />
+
+		<ul class="my-list">
+			<li>item 1</li>
+			<li>item 2</li>
+			<li>item 3</li>
+			<li>item 4</li>
+			<li>item 5</li>
+		</ul>
+		<form method="get">
+			<fieldset>
+				<legend>Personal info</legend>
+				<label>
+					Name:
+					<input value="Mohamed" readonly type="text" name="name" />
+				</label>
+				<br />
+				<label>
+					Age:
+					<input type="number" min="18" max="40" name="age" />
+				</label>
+			</fieldset>
+
+			<ul class="my-list">
+				<li>item 1</li>
+				<li>item 2</li>
+				<li>item 3</li>
+				<li>item 4</li>
+				<li>item 5</li>
+			</ul>
+			<fieldset>
+				<legend>Education</legend>
+				<label>
+					College:
+					<input type="text" name="college" />
+				</label>
+			</fieldset>
+
+			<!-- <input type="file" /> -->
+			<!-- <button>Sumit</button> -->
+			<input type="submit" value="submit" />
+			<input type="reset" />
+			<input type="button" value="button" />
+
+			<input type="range" min="0" max="10" step="2" name="grade" />
+		</form>
+
+		<ul class="my-list">
+			<li>item 1</li>
+			<li>item 2</li>
+			<li>item 3</li>
+			<li>item 4</li>
+			<li>item 5</li>
+		</ul>
+
+		<ul>
+			<li data-id="1">item 1</li>
+			<li>item 2</li>
+			<li>item 3</li>
+			<li>item 4</li>
+			<li>item 5</li>
+		</ul>
+
+		<p>
+			<a href="https://google.com" title="Google Link">Google</a> ipsum dolor,
+			sit amet consectetur adipisicing elit. Perspiciatis at consectetur nam
+			modi architecto alias consequatur non similique possimus? Perferendis
+			cumque quos omnis amet veritatis porro, maiores quasi deserunt rerum.
+		</p>
+	</body>
+</html>
