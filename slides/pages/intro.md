@@ -47,7 +47,7 @@ Cold War Era
 11. <span v-click>The Rendering Engine</span>
 12. <span v-click>GPU Processing and Display</span>
 
-> <a href="https://github.com/MohamedEmary/ITI-client-side-tech/blob/main/other/client-side-tech/intro/PDFs/req-res-lifecycle.pdf" target="_blank">PDF of the steps in details</a>
+> <a href="https://github.com/MohamedEmary/ITI-client-side-tech/blob/main/files/intro/PDFs/req-res-lifecycle.pdf" target="_blank">PDF of the steps in details</a>
 
 <!--
 BE processing for things like:

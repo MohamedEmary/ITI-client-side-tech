@@ -47,7 +47,7 @@ selector {
 
 ## Selectors
 
-[CSS Selectors Cheatsheet](https://github.com/MohamedEmary/ITI-client-side-tech/blob/main/other/client-side-tech/css/CSS%20Selector%20Cheat%20Sheet%20-%20Dark.pdf)
+[CSS Selectors Cheatsheet](https://github.com/MohamedEmary/ITI-client-side-tech/blob/main/files/css/CSS%20Selector%20Cheat%20Sheet%20-%20Dark.pdf)
 
 - **Universal:**
 
