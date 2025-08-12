@@ -64,3 +64,4 @@
 - `blog.html`
 - `blog.css` (with your CSS code)
 
+<!-- https://gist.github.com/MohamedEmary/6710594b8e88e702ef230b9bf9c1937d -->
