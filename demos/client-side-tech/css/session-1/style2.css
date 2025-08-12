@@ -1,0 +1,113 @@
+/* 
+img
+[title ends with ph]
+inside a div
+*/
+
+/* [title$="ph"] {
+	width: 100px;
+} */
+
+/* p.par1 */
+
+/* div p [title$="ph"] {
+	width: 100px;
+} */
+
+/* [title*="rgr"] {
+	background-color: green;
+} */
+
+/* [title] {
+	width: 50px;
+} */
+
+/* pseudo elements */
+/* :: */
+/* p::before {
+	content: "abc";
+}
+
+p::after {
+	content: "xyz";
+} */
+
+/* p::first-letter {
+	color: red;
+}
+
+p::first-line {
+	color: green;
+} */
+
+/* 
+pseudo classes 
+State
+*/
+
+li:first-child {
+	color: red;
+}
+
+li:last-child {
+	color: red;
+}
+
+div p:last-of-type {
+	color: green;
+}
+
+div a:only-of-type {
+	background-color: purple;
+}
+
+/* 
+hover
+focus
+required
+checked
+disabled
+*/
+button:hover {
+	background-color: red;
+}
+
+p:hover {
+	background-color: green;
+}
+
+input:focus {
+	/* border: 10px solid black; */
+	/* background-color: gray; */
+}
+
+input:required {
+	background-color: red;
+}
+
+input:disabled {
+	background-color: green;
+}
+
+input:checked {
+	outline: 2px solid green;
+}
+
+
+/* before & after */
+/* input:valid::after */
+/* input:valid + div::after */
+input[type="email"]:valid {
+	background-color: greenyellow;
+}
+
+input[type="email"]:invalid {
+	background-color: red;
+}
+
+input[type="email"]:valid + .after-message::after {
+	content: "Valid Email Value";
+}
+input[type="email"]:invalid + .after-message::after {
+	content: "Invalid Email Value";
+}

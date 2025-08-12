@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			/* styles */
+			/* body {
+				background-color: red;
+			} */
+			* {
+				/* font-size: 20px; */
+			}
+
+			/* p {
+				background-color: red;
+				color: white;
+			}
+
+			p {
+				background-color: green;
+			} */
+
+			/* specificity */
+			/* .par {
+				font-size: 50px;
+			}
+
+			#par2 {
+				color: green;
+			} */
+
+			/* 16px */
+			/* div p {
+				font-size: 20px;
+			} */
+
+			/* div > a {
+				color: green;
+			} */
+
+			/* p > a {
+				color: green;
+			} */
+
+			/* div a {
+				color: green;
+			} */
+
+			/* p ~ p {
+				color: red;
+			} */
+
+			/* + */
+			/* Adjacent sibling */
+			/* a + p {
+				color: green;
+			} */
+
+			/* p .my-paragraph {
+				color: green;
+			} */
+			/* div p {
+				background-color: red;
+			} */
+
+			div p.par1 {
+				background: gray;
+			}
+
+			/* 
+      alt
+      src
+      href
+      class
+      id
+      type
+      */
+		</style>
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p class="par1">Lorem, ipsum dolor.</p>
+		<hr />
+		<div>
+			<p class="par1">
+				Lorem ipsum dolor, sit <span>SPAN</span> consectetur adipisicing elit.
+				Nulla, harum?
+			</p>
+		</div>
+		<!--  -->
+		<!-- <p style="background-color: aqua" class="par">
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, nisi!
+		</p>
+
+		<a class="par" href="https://google.com" target="_blank"> Google</a>
+
+		<p id="par2">
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, nisi!
+		</p> -->
+
+		<!-- 
+    
+div > a 
+    > p > a
+-->
+
+		<!-- <div>
+			<a href="#">Google</a>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				<a href="#">Google</a> Numquam qui maiores possimus consequatur fugiat!
+				Quidem nam veritatis, rem, necessitatibus molestias, aliquid error
+				suscipit vero doloremque illo deserunt! Temporibus, minus suscipit?
+			</p>
+		</div> -->
+
+		<p class="my-paragraph">
+			1 <span class="my-paragraph">this is a span</span>
+		</p>
+		<a href="">Google</a>
+		<p>2</p>
+		<p>3</p>
+	</body>
+</html>

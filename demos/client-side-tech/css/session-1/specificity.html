@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			/* important */
+			/* inline */
+			/* tag */
+			/* class */
+
+			/* id */
+			/* (id, class, element) */
+
+			/* (1,0,0) */
+			#my-id {
+				color: gold;
+			}
+
+			/* (0,1,0) */
+			.par {
+				color: green;
+				background-color: green !important;
+			}
+
+			.parrr {
+				background-color: red !important;
+			}
+
+			/* (0,0,1) */
+			p {
+				color: red;
+				width: 200px;
+			}
+
+			/* (0,2,1) */
+			.my-div p.par {
+				color: aqua;
+			}
+		</style>
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="my-div">
+			<p
+				class="par parrr"
+				id="my-id"
+				style="color: blue; background-color: aqua">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, qui.
+			</p>
+		</div>
+	</body>
+</html>
