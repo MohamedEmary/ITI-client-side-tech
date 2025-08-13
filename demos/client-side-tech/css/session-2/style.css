@@ -1,0 +1,103 @@
+html {
+	/* --variable-name */
+	/* var(--main-color) */
+	--main-color: rgb(61, 210, 61);
+	--secondary-color: #8000800;
+	--default-width: 20%;
+}
+
+* {
+	margin: 0;
+}
+
+.img-container {
+	/* background-color: gold;
+	background-image: url("pattern.png");
+	background-repeat: repeat; */
+	/* background-size: 100% 100%; */
+	background: gold url("pattern.png") repeat-x center / 300px;
+	/* 	background-size: 100px; */
+	height: 300px;
+	width: 300px;
+	border: 8px dashed black;
+	padding: 10px;
+	/* TODO: add to slides */
+	background-clip: content-box;
+	/* box-sizing */
+	/* width: 1000px; */
+	/* background-position: center; */
+	/* background-position: 50% 10%; */
+}
+
+/* 
+var()
+min()
+max()
+clamp()
+calc()
+
+rgb(r,g,b)
+rgba(r,g,b)
+hsl()
+hsla()
+*/
+
+/* 
+CSS variables
+--main-color
+red
+--secondary-color
+purple
+*/
+
+span {
+	background-color: var(--main-color);
+}
+
+a {
+	color: var(--main-color);
+}
+
+p {
+	border: 3px solid var(--main-color);
+
+	/* relative unit */
+	/* width: 50%; */
+	/* calc */
+	/* absolute unit 50px + 1in */
+	/* width: calc(50% + 50px + 1em); */
+	/* width: calc(1em * 20); */
+	width: calc(100% / 3 - 50px);
+}
+
+/* body {
+	width: 800px;
+} */
+
+.variable-width {
+	height: 200px;
+	background-color: chocolate;
+	margin: 20px;
+
+	/* min-width: 400px;
+	max-width: 700px; 
+	width: 50%; */
+
+	/* width: clamp(400px, 50%, 700px); */
+
+	/* width: min(500px, 50%); */
+	/* width: 50%;
+	max-width: 500px; */
+
+	width: max(500px, 70%);
+	/* min-width: 500px;
+  width: 70%; */
+}
+
+.gradient {
+	height: 300px;
+	width: 1000px;
+	margin: 20px;
+	/* background: linear-gradient(50deg, red, yellow, green); */
+	background: radial-gradient(ellipse, red, blue, green, yellow);
+}

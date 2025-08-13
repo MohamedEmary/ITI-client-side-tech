@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			.responsive-container {
+				display: flex;
+				background: red;
+				padding: 10px;
+				flex-wrap: wrap;
+				/* gap: 5px; */
+			}
+
+			.responsive-container > div {
+				background-color: green;
+				flex-basis: calc(100% / 4);
+
+				box-sizing: border-box;
+				margin: 5px;
+				font-size: 20px;
+			}
+
+			/* 700px */
+
+			/* max-width max-width */
+			/* min-width min-width */
+
+			/* media query */
+			/* 500 > size > 900 */
+			/* mobile first layout */
+			/* styles */
+			@media screen and (max-width: 900px) {
+				.responsive-container > div {
+					flex-basis: calc(100% / 3);
+					font-size: 18px;
+					background-color: blue;
+				}
+			}
+
+			/*  500 > size > 447  */
+			@media screen and (max-width: 500px) {
+				.responsive-container > div {
+					flex-basis: calc(100% / 2);
+					font-size: 16px;
+					background-color: yellow;
+				}
+			}
+
+			/* size < 447 */
+			@media screen and (max-width: 447px) {
+				.responsive-container > div {
+					flex-basis: 100%;
+					font-size: 16px;
+					background-color: red;
+				}
+			}
+		</style>
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="responsive-container">
+			<div class="item-1">item 1</div>
+			<div class="item-2">item 2</div>
+			<div class="item-3">item 3</div>
+			<div class="item-4">item 4</div>
+			<div class="item-5">item 5</div>
+			<div class="item-6">item 6</div>
+			<div class="item-7">item 7</div>
+		</div>
+	</body>
+</html>

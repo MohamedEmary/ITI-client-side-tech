@@ -1,0 +1,75 @@
+.container {
+	background-color: gold;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	padding: 10px;
+	/* flex-wrap: wrap; */
+	align-items: stretch;
+	/* align-content: flex-end; */
+
+	height: 700px;
+}
+
+/* flex basis */
+.container > div {
+	/* flex-basis: 200px; */
+	/* flex-grow */
+	/* flex-grow: 1; */
+	width: 150px;
+	/* height: 100px; */
+}
+
+/* 
+on item not the container
+flex-grow
+flex-shrink
+flex-basis
+
+flex: grow shrink basis
+flex: 1 2 300px
+*/
+
+/* .item-1 {
+	flex-grow: 1;
+} */
+
+/* .item-20 {
+	flex-grow: 4;
+}
+
+.item-19 {
+	flex-grow: 1;
+} */
+
+/* .item-1,
+.item-2 {
+	flex-basis: 300px;
+}
+
+.item-1 {
+	flex-shrink: 1;
+	flex-grow: 2;
+}
+
+.item-2 {
+	flex-shrink: 2;
+	flex-grow: 1;
+} */
+
+.container > div:nth-child(even) {
+	background-color: green;
+}
+
+.container > div:nth-child(odd) {
+	background-color: rgb(202, 148, 41);
+}
+
+.item-2 {
+	align-self: center;
+	order: 2;
+}
+
+.item-10 {
+	order: 1;
+}
