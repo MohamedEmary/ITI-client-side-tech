@@ -1,0 +1,28 @@
+.container {
+	min-height: 500px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.container > div {
+	border: 1px solid black;
+}
+
+.main {
+	display: flex;
+	gap: 5px;
+}
+
+.main > div {
+	border: 1px solid black;
+}
+
+.main .content {
+	flex-grow: 3;
+}
+
+.main .l-side,
+.main .r-side {
+	flex-grow: 1;
+}

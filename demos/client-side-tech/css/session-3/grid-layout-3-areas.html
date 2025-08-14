@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			.container {
+				display: grid;
+				min-height: 600px;
+				border: 1px solid black;
+				gap: 5px;
+
+				/* repeat() */
+				/* auto */
+				/* fr */
+				/* px */
+				/* minmax() */
+
+				/* repeat(3, minmax(200px, 300px)) */
+
+				grid-template-columns: minmax(auto, 1fr) 3fr 1fr;
+				grid-template-rows: 1fr minmax(auto, 300px) 1fr;
+
+				grid-template-areas:
+					"header header header"
+					"l-side content r-side"
+					"footer footer footer";
+			}
+
+			.container > div {
+				border: 1px solid black;
+        /* justify-self: center;
+        align-self: center; */
+			}
+
+			.header {
+				grid-area: header;
+			}
+			.l-side {
+				grid-area: l-side;
+			}
+			.content {
+				grid-area: content;
+			}
+			.r-side {
+				grid-area: r-side;
+			}
+			.footer {
+				grid-area: footer;
+			}
+		</style>
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">header</div>
+			<div class="l-side">l-side</div>
+			<div class="content">content</div>
+			<div class="r-side">r-side</div>
+			<div class="footer">footer</div>
+		</div>
+	</body>
+</html>
