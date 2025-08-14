@@ -14,7 +14,6 @@
 
 - **Compiled:** Code is translated to machine code before running (e.g., C, C++)
 - **Interpreted:** Code is read and executed line by line (e.g., JavaScript, Python)
-- **JavaScript** was traditionally interpreted, but now uses modern engines
 
 ---
 
@@ -38,8 +37,7 @@ graph LR
 - **V8** is Google Chrome’s JavaScript engine (also used in Node.js)
 - Translates JS code into machine code using **JIT (Just-In-Time) compilation**
 - **Why is it fast?**
-    - Uses JIT (Just-In-Time) compilation to turn JS into machine code while running
-    - Optimizes code that runs often
+    - Uses JIT (Just-In-Time) compilation to turn JS code that runs often into machine code
 - Google Chrome and why google dominates the web
 
 ---
@@ -57,6 +55,7 @@ graph LR
     </script>
     ```
 - **External:**
+    - Better to use it at the end of the body because interpretation can slow down display.
     ```html
     <script src="script.js"></script>
     ```
@@ -97,8 +96,8 @@ graph LR
 
 ## Data Types & Loosely Typed Nature
 
-- **Primitive Types:** `number`, `string`, `boolean`, `undefined`, `null`
-- **Objects:** arrays, functions, objects
+- **Primitive Types:** `number`, `string`, `boolean`, `undefined`, `null` (using `typeof null` returns `object` but that is a bug in JavaScript), `bigint`, `symbol`
+- **Objects:** arrays, objects, function (`typeof function` returns `function` but its a special type of object)
 - **Loosely Typed:**
     - Variables can hold any type
     - Types can change at runtime
