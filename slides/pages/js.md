@@ -356,13 +356,13 @@ for (var i = 0; i < 5; i++) {
 
 ---
 
-## confirm & prompt
+## `confirm` & `prompt`
 
-- **confirm(message):** Shows OK/Cancel dialog, returns true/false.
+- **`confirm(message)`:** Shows OK/Cancel dialog, returns `true`/`false`.
     ```js
     var ok = confirm("Are you sure?");
     ```
-- **prompt(message, default):** Shows input dialog, returns string or null.
+- **`prompt(message, default)`:** Shows input dialog, returns string or `null`.
     ```js
     var name = prompt("Enter your name:", "Ali");
     ```
