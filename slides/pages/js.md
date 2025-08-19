@@ -700,7 +700,7 @@ The JavaScript `Date` constructor can create date objects using the following [p
 - Numeric values for year, month (0-based), day, hour, minute, second, millisecond (e.g., `new Date(1990, 9, 4)`).
     - Number of milliseconds since Jan 1, 1970 (Epoch time).
 
-[**Valid datetime values**](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/time#valid_datetime_values)
+[**Date Constructor**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 ---
 
