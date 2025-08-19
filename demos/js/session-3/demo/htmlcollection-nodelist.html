@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<ul id="fruits">
+			<li>Apple</li>
+			<!-- hello world -->
+			<li>Banana</li>
+		</ul>
+
+		<script>
+			var itemsNode = document.querySelectorAll("#fruits li"); // static NodeList
+
+			// var ul = document.getElementById("fruits")
+			// ul.getElementsByTagName("li")
+			var itemsCollection = document
+				.getElementById("fruits")
+				.getElementsByTagName("li"); // live HTMLCollection
+
+			var itemsArr = Array.from(itemsCollection);
+			// itemsArr.forEach((item) => console.log(item));
+
+			console.log(itemsNode, itemsNode.length);
+			console.log(itemsCollection, itemsCollection.length);
+
+			var newItem = document.createElement("li");
+			newItem.textContent = "Cherry";
+			document.getElementById("fruits").appendChild(newItem);
+
+			console.log(itemsNode, itemsNode.length);
+			console.log(itemsCollection, itemsCollection.length);
+
+			// console.log("====================================");
+
+			var fruits = document.querySelector("#fruits");
+			console.log("children = ", fruits.children.length, fruits.children);
+			console.log("childNodes = ", fruits.childNodes.length, fruits.childNodes);
+
+			// var newFruit = document.createElement("li");
+			// newFruit.textContent = "Mango";
+			// fruits.appendChild(newFruit);
+
+			// console.log("children = ", fruits.children.length, fruits.children);
+			// console.log(
+			// 	"childNodes = ",
+			// 	fruits.childNodes.length,
+			// 	fruits.childNodes // childNodes is a live NodeList
+			// );
+		</script>
+	</body>
+</html>
