@@ -863,7 +863,7 @@ button.addEventListener("click", function () {
 
 ### Event Object
 
-- Contains info about the event: `type`, `target`, `clientX`, `clientY`, `keyCode`, etc.
+- Contains info about the event: `type`, `target`, `clientX`, `clientY`, ~~`keyCode`~~ (deprecated so use `key` or `code` instead), etc.
 - Example:
 
 ```js
@@ -1064,6 +1064,14 @@ In most cases `parentElement`, returns the same as `parentNode`, but if the elem
     // div.innerHTML = "Hello   <b>World</b>\n\n!";
 </script>
 ```
+---
+
+## Assignment: Library website
+
+> Ignore Login
+
+<img src="../assets/images/js/library-site.png" alt="Library Website" style="width: 73%; margin: auto; margin-top: 30px">
+
 
 ---
 
@@ -1175,11 +1183,11 @@ googleBtn.addEventListener("click", function () {
 open(
     "https://www.google.com", // or a local file path like "more-info.html"
     "_blank",
-    "width=500,height=500,top=100,left=100"
+    "width=500,height=500"
 );
 ```
 
----
+<!-- ---
 
 ### `close`
 
@@ -1197,6 +1205,7 @@ function closeOpenedWindow() {
     openedWindow.close();
 }
 ```
+-->
 
 ---
 
@@ -1223,11 +1232,11 @@ console.log(screen.height);
 // Available screen area (excluding taskbar)
 console.log(screen.availWidth);
 console.log(screen.availHeight);
-
-// Show available screen positioning
-console.log(screen.availTop);
-console.log(screen.availLeft);
 ```
+
+<!-- // Show available screen positioning
+console.log(screen.availTop);
+console.log(screen.availLeft); -->
 
 ---
 
