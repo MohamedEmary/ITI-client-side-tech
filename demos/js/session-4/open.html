@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<style>
+			/* .fixed {
+				position: fixed;
+				background-color: gray;
+				inset: 0;
+			} */
+		</style>
+		<title>Document</title>
+	</head>
+	<body>
+		<form>
+			<input type="text" name="name" />
+			<input type="url" name="url" />
+			<button>Open url</button>
+		</form>
+
+		<div class="fixed"></div>
+
+		<script>
+			var form = document.querySelector("form");
+			var input = form.querySelector("input");
+			form.addEventListener("submit", function (e) {
+				console.log(e);
+				e.preventDefault();
+				// window.open()
+				// open(input.value, "myWindow", "width=500,height=100");
+				console.log(form);
+				// location.href = input.value;
+        // location.assign(input.value)
+        // location.replace(input.value)
+			});
+			// vw vh
+		</script>
+	</body>
+</html>

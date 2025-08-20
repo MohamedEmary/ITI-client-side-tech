@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			#grand-parent {
+				padding: 10px;
+				background-color: tomato;
+			}
+			#parent {
+				padding: 10px;
+				background-color: gold;
+			}
+			#child {
+				padding: 10px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			Lorem ipsum
+			<span style="display: none">dolor</span>
+			sit.
+		</p>
+
+		<!-- event propagation -->
+		<div id="grand-parent">
+			grand parent
+			<div id="parent">
+				parent
+				<div id="child">child</div>
+			</div>
+		</div>
+
+		<script>
+			var p = document.querySelector("p");
+			console.log(p.innerText);
+			console.log(p.textContent);
+
+			// bubbling vs capturing
+			var gParent = document.getElementById("grand-parent");
+			var parent = document.getElementById("parent");
+			var child = document.getElementById("child");
+
+			// document.documentElement.addEventListener(
+			// 	"click",
+			// 	function (e) {
+			// 		console.log("document got clicked");
+			// 	},
+			// 	true
+			// );
+			// event propagation
+			gParent.addEventListener(
+				"click",
+				function (e) {
+					console.log("gParent");
+					// e.stopPropagation();
+				}
+				// true
+			);
+
+			// OOP
+			// inheritance
+			// class -> another class
+			// object from class (methods -> prototype)
+
+			parent.addEventListener(
+				"click",
+				function (e) {
+					console.log("parent");
+					e.stopPropagation();
+				}
+				// true
+			);
+			child.addEventListener(
+				"click",
+				function (e) {
+					console.log("child");
+					// console.log(e);
+					e.stopPropagation();
+				}
+				// true
+			);
+
+			document.addEventListener("keydown", function (e) {
+				console.log(e.keyCode);
+
+				console.log(
+					"e.keyCode = ",
+					e.keyCode,
+					"e.code = ",
+					e.code,
+					"e.key = ",
+					e.key
+				);
+				// e.key => actual character
+				// e.code => physical btn
+			});
+
+			// capslock => escape
+		</script>
+	</body>
+</html>

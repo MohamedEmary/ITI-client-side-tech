@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// window -> Document => DOM
+			// super global object
+			console.log(window);
+			// =====================
+			// window.alert("hi1");
+			// alert("hi2")
+
+			var a = 123;
+			function sayHi() {
+				console.log("hi");
+			}
+
+			// window.document.querySelector("button")
+
+			// setTimeout
+			// setTimeout(function () {
+			// 	console.log("1");
+			// }, 1000); // ms
+
+			// setTimeout(function () {
+			//   console.log("2");
+			// }, 2000)
+
+			// setTimeout(function () {
+			//   console.log("3");
+			// }, 3000)
+
+			// setInterval clearInterval
+			var counter = 1;
+			var myInterval = setInterval(function () {
+				console.log(counter);
+				counter++;
+			}, 1000);
+
+			setTimeout(function () {
+				console.log("set timeout activated");
+				clearInterval(myInterval);
+			}, 5000);
+		</script>
+	</body>
+</html>
