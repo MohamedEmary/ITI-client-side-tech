@@ -989,14 +989,19 @@ let user = {
 
 ---
 
-## Blocking vs Non-blocking
+## JavaScript: Single-threaded, Non-blocking, Synchronous
 
-- **Blocking**: Code execution stops and waits for a task to finish before moving on.
-    - Example: `alert("Hello")` blocks the code until the user clicks "OK".
-    - Blocking code can freeze the UI.
-- **Non-blocking**: Code can start a task and continue running other code while waiting for the task to finish.
-    - Example: `setTimeout(() => console.log("Done"), 1000)` allows the code to continue running while waiting for the timeout.
-    - Non-blocking code keeps apps responsive.
+1. Single-threaded: All code runs on one main thread.
+2. Non-blocking: Uses the event loop to handle tasks without freezing the main thread.
+   - The **event loop** lets JS handle many tasks efficiently, like responding to user input, network requests, and timers, all without blocking the main thread.
+3. Synchronous language
+
+
+However, it can do asynchronous tasks using:
+
+- Callbacks
+- Promises
+- Async/Await
 
 ---
 
@@ -1031,15 +1036,6 @@ let user = {
     - Possible with Web Workers (in browsers).
     - Useful for heavy computations or background tasks.
 
----
-
-## JavaScript: Single-threaded, Non-blocking, Asynchronous
-
-- **JavaScript is:**
-    1. Single-threaded: All code runs on one main thread.
-    2. Non-blocking: Uses the event loop to handle tasks without freezing the main thread.
-    3. Asynchronous: Can run tasks in the background and respond when they're done (using callbacks, promises, async/await).
-- The **event loop** lets JS handle many tasks efficiently, like responding to user input, network requests, and timers, all without blocking the main thread.
 
 ---
 
