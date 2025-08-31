@@ -1,0 +1,45 @@
+body {
+	padding-top: 20px;
+}
+
+.layout {
+	background-color: #333;
+	border-radius: 10px;
+}
+
+.layout > .row .col {
+	border-radius: 10px;
+}
+
+.layout > .row {
+	height: 100px;
+	border-radius: 10px;
+}
+
+.layout > .row:last-child {
+	height: 300px;
+}
+
+.bg-green {
+	background-color: rgb(8, 69, 8);
+}
+
+.bg-gold {
+	background-color: gold;
+}
+
+.bg-aqua {
+	background-color: aqua;
+}
+
+.bg-blue {
+	background-color: blue;
+}
+
+.bg-black {
+	background-color: black;
+}
+
+.inner > div {
+	height: 100px;
+}

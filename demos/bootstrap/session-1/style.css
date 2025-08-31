@@ -1,0 +1,27 @@
+body {
+	padding-bottom: 100px;
+}
+
+.parent {
+	background-color: red;
+}
+
+.parent .row {
+	min-height: 200px;
+	margin-top: 20px;
+	height: 100%;
+	border: 2px solid black;
+}
+
+.parent .row > div {
+	color: white;
+	font-weight: bold;
+}
+
+.parent .row > div:nth-child(even) {
+	background-color: blue;
+}
+
+.parent .row > div:nth-child(odd) {
+	background-color: green;
+}
