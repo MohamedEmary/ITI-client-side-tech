@@ -4,9 +4,8 @@
 - Library vs Framework
   - Library (React) -> reusable code
   - Framework (Angular, Nest.js)
-- SASS
+- SASS (CSS pre-processor)
 - How to add Bootstrap
-
   - CDN (Content Delivery Network)
   - Download
 
