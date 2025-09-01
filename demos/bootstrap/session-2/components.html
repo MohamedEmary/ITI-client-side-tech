@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!-- data-bs-theme="dark" -->
+<html lang="en" data-bs-theme="">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+			crossorigin="anonymous" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
+
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<title>BS Components</title>
+	</head>
+	<body>
+		<!-- <button class="btn btn-outline-danger">Button</button> -->
+		<!-- breadcrumb -->
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="./assets/images/logo.png" style="height: 30px" alt="" />
+					Navbar
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					<!-- <span class="btn-close"></span> -->
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								href="#"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false">
+								Section
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Politics</a></li>
+								<li><a class="dropdown-item" href="#">Economics</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+						</li>
+					</ul>
+					<form class="d-flex" role="search">
+						<input
+							class="form-control me-2"
+							type="search"
+							placeholder="Search"
+							aria-label="Search" />
+						<button class="btn btn-outline-success" type="submit">
+							Search
+						</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<form>
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label"
+						>Email address</label
+					>
+					<input
+						type="email"
+						class="form-control shadow-none"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
+						disabled />
+					<div id="emailHelp" class="form-text">
+						We'll never share your email with anyone else.
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Username</label>
+					<input
+						type="email"
+						placeholder="mohamed"
+						class="form-control form-control-sm shadow-none"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
+						readonly />
+				</div>
+
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Username</label>
+					<input
+						type="email"
+						placeholder="mohamed"
+						class="form-control form-control-plaintext"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
+						readonly />
+				</div>
+
+				<div class="mb-3">
+					<label for="formFile" class="form-label"
+						>Default file input example</label
+					>
+					<input class="form-control" type="file" id="formFile" />
+				</div>
+				<div class="mb-3">
+					<label for="formFileMultiple" class="form-label"
+						>Multiple files input example</label
+					>
+					<input
+						class="form-control"
+						type="file"
+						id="formFileMultiple"
+						multiple />
+				</div>
+				<div class="mb-3">
+					<label for="formFileDisabled" class="form-label"
+						>Disabled file input example</label
+					>
+					<input
+						class="form-control"
+						type="file"
+						id="formFileDisabled"
+						disabled />
+				</div>
+				<div class="mb-3">
+					<label for="formFileSm" class="form-label"
+						>Small file input example</label
+					>
+					<input
+						class="form-control form-control-sm"
+						id="formFileSm"
+						type="file" />
+				</div>
+				<div>
+					<label for="formFileLg" class="form-label"
+						>Large file input example</label
+					>
+					<input
+						class="form-control form-control-lg"
+						id="formFileLg"
+						type="file" />
+				</div>
+
+				<div>
+					<label for="exampleColorInput" class="form-label">Color picker</label>
+					<input
+						type="color"
+						class="form-control form-control-color"
+						id="exampleColorInput"
+						value="#563d7c"
+						title="Choose your color" />
+				</div>
+
+				<div class="mb-3">
+					<label for="exampleDataList" class="form-label"
+						>Datalist example</label
+					>
+					<input
+						class="form-control"
+						list="datalistOptions"
+						id="exampleDataList"
+						placeholder="Type to search..." />
+					<datalist id="datalistOptions">
+						<option value="بنها"></option>
+						<option value="كفر الشيخ"></option>
+					</datalist>
+				</div>
+
+				<div class="mb-3">
+					<!-- multiple -->
+					<select
+						disabled
+						class="form-select form-select-sm"
+						aria-label="Default select example">
+						<option selected>Open this select menu</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
+				</div>
+
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label">Password</label>
+					<input
+						type="password"
+						class="form-control"
+						id="exampleInputPassword1" />
+				</div>
+				<div class="mb-3 form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1" />
+					<label class="form-check-label" for="exampleCheck1"
+						>Check me out</label
+					>
+				</div>
+
+				<div class="mb-3">
+					<div class="form-check">
+						<input
+							class="form-check-input"
+							type="checkbox"
+							value=""
+							id="checkDefault" />
+						<label class="form-check-label" for="checkDefault">
+							Default checkbox
+						</label>
+					</div>
+					<div class="form-check">
+						<input
+							class="form-check-input"
+							type="checkbox"
+							value=""
+							id="checkChecked"
+							checked />
+						<label class="form-check-label" for="checkChecked">
+							Checked checkbox
+						</label>
+					</div>
+				</div>
+
+				<div class="form-check">
+					<!-- indeterminate -->
+					<input
+						class="form-check-input"
+						type="checkbox"
+						value=""
+						id="checkIndeterminate" />
+					<label class="form-check-label" for="checkIndeterminate">
+						Indeterminate checkbox
+					</label>
+				</div>
+
+				<div class="form-check">
+					<!-- indeterminate -->
+					<input
+						class="form-check-input"
+						type="radio"
+						value=""
+						id="checkIndeterminate" />
+					<label class="form-check-label" for="checkIndeterminate">
+						Indeterminate checkbox
+					</label>
+				</div>
+
+				<div class="form-check form-switch">
+					<input
+						class="form-check-input"
+						type="checkbox"
+						role="switch"
+						id="switchCheckDefault"
+						checked />
+					<label class="form-check-label" for="switchCheckDefault"
+						>Default switch checkbox input</label
+					>
+				</div>
+
+				<div class="form-check">
+					<div class="form-check form-check-inline">
+						<input
+							class="form-check-input form-check-inline"
+							type="checkbox"
+							role="switch"
+							id="switchCheckDefault"
+							checked />
+						<label class="form-check-label" for="switchCheckDefault"
+							>input</label
+						>
+					</div>
+
+					<div class="form-check form-check-inline">
+						<input
+							class="form-check-input form-check-inline"
+							type="checkbox"
+							role="switch"
+							id="switchCheckDefault"
+							checked />
+						<label class="form-check-label" for="switchCheckDefault"
+							>input</label
+						>
+					</div>
+				</div>
+				<div class="mb-3">
+					<input
+						type="checkbox"
+						class="btn-check"
+						id="btn-check"
+						autocomplete="off" />
+					<label class="btn btn-danger" for="btn-check">Single toggle</label>
+
+					<input
+						type="checkbox"
+						class="btn-check"
+						id="btn-check-5"
+						checked
+						autocomplete="off" />
+					<label class="btn" for="btn-check-5">Checked</label>
+				</div>
+
+				<div class="mb-3">
+					<input
+						type="radio"
+						class="btn-check"
+						name="options-base"
+						id="option5"
+						autocomplete="off"
+						checked />
+					<label class="btn" for="option5">Checked</label>
+
+					<input
+						type="radio"
+						class="btn-check"
+						name="options-base"
+						id="option6"
+						autocomplete="off" />
+					<label class="btn" for="option6">Radio</label>
+
+					<input
+						type="radio"
+						class="btn-check"
+						name="options-base"
+						id="option7"
+						autocomplete="off"
+						disabled />
+					<label class="btn" for="option7">Disabled</label>
+
+					<input
+						type="radio"
+						class="btn-check"
+						name="options-base"
+						id="option8"
+						autocomplete="off" />
+					<label class="btn" for="option8">Radio</label>
+				</div>
+
+				<div class="mb-3">
+					<label for="range1" class="form-label">Example range</label>
+					<input
+						type="range"
+						class="form-range"
+						id="range1"
+						min="0"
+						max="10"
+						step="0.5"
+						disabled />
+				</div>
+
+				<div class="mb-3">
+					<label for="range4" class="form-label">Example range</label>
+					<input
+						type="range"
+						class="form-range"
+						min="0"
+						max="100"
+						value="50"
+						id="range4" />
+					<output for="range4" id="rangeValue" aria-hidden="true"></output>
+				</div>
+				<!-- ===================== -->
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+
+			<div class="dropdown">
+				<button
+					class="btn btn-danger btn-sm dropdown-toggle"
+					type="button"
+					data-bs-toggle="dropdown"
+					aria-expanded="false">
+					Dropdown button
+				</button>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Action</a></li>
+					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"></script>
+		<script src="assets/js/script2.js"></script>
+	</body>
+</html>

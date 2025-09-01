@@ -1,0 +1,22 @@
+/* :root {
+  --main-color: red;
+} */
+
+/* fallback */
+/* p {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--main-color, blue);
+} */
+
+/* p {
+  text-align: right;
+} */
+
+/* :root {
+	--bs-body-color: red;
+} */
+
+.square {
+	width: 200px;
+	height: 200px;
+}

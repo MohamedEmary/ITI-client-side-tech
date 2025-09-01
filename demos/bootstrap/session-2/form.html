@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- data-bs-theme="dark" -->
+<html lang="en" data-bs-theme="">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+			crossorigin="anonymous" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
+
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<title>BS Components</title>
+	</head>
+	<body>
+		<!-- <button class="btn btn-outline-danger">Button</button> -->
+		<!-- breadcrumb -->
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="./assets/images/logo.png" style="height: 30px" alt="" />
+					Navbar
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					<!-- <span class="btn-close"></span> -->
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								href="#"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false">
+								Section
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Politics</a></li>
+								<li><a class="dropdown-item" href="#">Economics</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+						</li>
+					</ul>
+					<form class="d-flex" role="search">
+						<input
+							class="form-control me-2"
+							type="search"
+							placeholder="Search"
+							aria-label="Search" />
+						<button class="btn btn-outline-success" type="submit">
+							Search
+						</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<!-- <form >
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">
+						<i class="fa-regular fa-user"></i>
+					</span>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Username"
+						id="username-field"
+						aria-label="Username"
+						aria-describedby="basic-addon1" />
+				</div>
+				<div class="input-group mb-3">
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Recipient’s username"
+						aria-label="Recipient’s username"
+						aria-describedby="basic-addon2" />
+					<span class="input-group-text" id="basic-addon2">@example.com</span>
+				</div>
+				<div class="mb-3">
+					<label for="basic-url" class="form-label">Your vanity URL</label>
+					<div class="input-group">
+						<span class="input-group-text" id="basic-addon3"
+							>https://example.com/users/</span
+						>
+						<input
+							type="text"
+							class="form-control"
+							id="basic-url"
+							aria-describedby="basic-addon3 basic-addon4" />
+					</div>
+					<div class="form-text" id="basic-addon4">
+						Example help text goes outside the input group.
+					</div>
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text">$</span>
+					<input
+						type="text"
+						class="form-control"
+						aria-label="Amount (to the nearest dollar)" />
+					<span class="input-group-text">.00</span>
+				</div>
+				<div>
+					<input
+						type="email"
+						class="form-control"
+						id="floatingInputValue"
+						placeholder="name@example.com"
+						value="test@example.com" />
+					<label for="floatingInputValue">Input with value</label>
+				</div>
+				<div class="input-group mb-3">
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Username"
+						aria-label="Username" />
+					<span class="input-group-text">@</span>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Server"
+						aria-label="Server" />
+				</div>
+				<div class="input-group">
+					<span class="input-group-text">With textarea</span>
+					<textarea class="form-control" aria-label="With textarea"></textarea>
+				</div>
+				<div class="form-floating">
+					<textarea
+						class="form-control"
+						placeholder="Leave a comment here"
+						id="floatingTextarea"></textarea>
+					<label for="floatingTextarea">Comments</label>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<input
+							type="text"
+							class="form-control"
+							placeholder="First name"
+							aria-label="First name" />
+					</div>
+					<div class="col">
+						<input
+							type="text"
+							class="form-control"
+							placeholder="Last name"
+							aria-label="Last name" />
+					</div>
+				</div>
+			</form> -->
+
+			<form>
+				<div class="row mb-3 g-3">
+					<div class="col">
+						<div class="form-floating">
+							<input
+								type="text"
+								class="form-control"
+								id="fname"
+								aria-label="First name"
+								placeholder="John" />
+							<label for="fname">First name</label>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-floating">
+							<input
+								type="text"
+								class="form-control"
+								id="lname"
+								aria-label="Last name"
+								placeholder="asdad" />
+							<label for="lname">Last name</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="mb-3 row">
+					<div class="col-6">
+						<label for="floatingInput">Email address</label>
+						<input
+							type="email"
+							class="form-control"
+							id="floatingInput"
+							placeholder="name@example.com" />
+					</div>
+					<div class="col">
+						<label for="floatingInput">Email address</label>
+						<input
+							type="email"
+							class="form-control"
+							id="floatingInput"
+							placeholder="name@example.com" />
+					</div>
+					<div class="col">
+						<label for="floatingInput">Email address</label>
+						<input
+							type="email"
+							class="form-control"
+							id="floatingInput"
+							placeholder="name@example.com" />
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="passwd">Password</label>
+					<input type="email" class="form-control" id="passwd" />
+				</div>
+
+				<div class="form-check mb-3">
+					<input
+						class="form-check-input"
+						type="checkbox"
+						value=""
+						id="checkChecked"
+						checked />
+					<label class="form-check-label" for="checkChecked">
+						Agree to TOS
+					</label>
+				</div>
+
+				<button class="btn btn-primary">submit</button>
+			</form>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"></script>
+		<script src="assets/js/script3.js"></script>
+	</body>
+</html>
