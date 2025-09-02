@@ -1,0 +1,60 @@
+<!-- Version 5 of html -->
+<!-- Quirks mode -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<meter min="5" max="10" value="7"></meter>
+		<progress value="3" max="10"></progress>
+		<input type="color" name="fav-color" />
+		<h2>Rate our service</h2>
+		<input type="range" name="rate" min="0" max="5" />
+		<input type="date" value="2018-07-22" min="2016-01-01" max="2018-12-31" />
+		<input
+			type="datetime-local"
+			value="2018-06-12T19:30"
+			min="2018-06-07T00:00"
+			max="2018-06-14T00:00" />
+		<input type="file" multiple accept="image/*" />
+		<!-- TODO: Search for what is regex and how to use it in js -->
+		<!-- Regex Regular Expression -->
+
+		<form>
+			<input type="tel" pattern="^01[0-2,5]{1}[0-9]{8}$" />
+			<button>Submit</button>
+		</form>
+
+		<video width="200" src="cat.mp4" controls></video>
+		<audio src="music.mp3" autoplay controls></audio>
+		<script>
+			const video = document.querySelector("video");
+			video.onloadeddata = () => {
+				console.log("loaded");
+			};
+
+			video.ontimeupdate = () => {
+				console.log(video.currentTime);
+			};
+
+			// const progress = document.querySelector("progress");
+			// const interval = setInterval(() => {
+			// 	progress.value += 1;
+			// 	if (progress.value >= progress.max) {
+			// 		clearInterval(interval);
+			// 	}
+			// }, 1000);
+
+			const color = document.querySelector("input[type='color']");
+			color.addEventListener("change", () => {
+				console.log(color.value);
+			});
+
+			const phoneRegex = /^01[0-2,5]{1}[0-9]{8}$/;
+			console.log(phoneRegex.test("01122348254"));
+		</script>
+	</body>
+</html>

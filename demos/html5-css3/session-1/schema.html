@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script type="application/ld+json">
+			{
+				"@context": "http://www.schema.org",
+				"@type": "EducationalOrganization",
+				"name": "ITI",
+				"description": "asdasd",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "k28 cairo-Alexandria road",
+					"addressLocality": "smart village",
+					"addressRegion": "giza",
+					"postalCode": "11345",
+					"addressCountry": "Egypt"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!-- structured data -->
+		<!-- 
+      Microdata
+      JSON/LD
+      RDFa
+    -->
+		<!-- Person info -->
+		<!-- Oraganization info -->
+		<!-- k28 cairo-Alexandria road,smart village, giza, egypt, 11371 -->
+
+		<div>k28 cairo-Alexandria road, smart village, giza, egypt, 11371</div>
+
+		<div itemscope itemtype="https://schema.org/Organization">
+			<div
+				itemprop="address"
+				itemscope
+				itemtype="https://schema.org/PostalAddress">
+				<span itemprop="streetAddress">k28 cairo-Alexandria road</span>,
+				<span itemprop="addressLocality">smart village</span>,
+				<span itemprop="addressRegion">giza</span>,
+				<span itemprop="addressCountry">egypt</span>,
+				<span itemprop="postalCode">11371</span>
+			</div>
+		</div>
+	</body>
+</html>
