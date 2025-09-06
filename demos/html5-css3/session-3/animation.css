@@ -1,0 +1,53 @@
+.mybox {
+	width: 100px;
+	height: 100px;
+	/* background-color: red; */
+	/* background: linear-gradient(to left, blue, red); */
+	background: rgb(87, 230, 55);
+	/* 
+  https://cssreference.io/property/transition-timing-function/ 
+  https://cubic-bezier.com/
+  */
+
+	/* transition: width 100ms, height 1s ease-in; */
+	/* transition-property: width, height; */
+	/* transition-property: all; */
+	/* transition-duration: 2s; */
+	/* transition-timing-function: cubic-bezier(0.18, 0.9, 0.89, 0.12); */
+	/* transition-timing-function: ease-in; */
+}
+
+.mybox:hover {
+	width: 200px;
+	height: 200px;
+	background: rgb(235, 138, 78);
+}
+
+.animated {
+	width: 100px;
+	height: 100px;
+	background-color: purple;
+	margin-top: 100px;
+	border-radius: 20px;
+	animation-name: bounce;
+	position: relative;
+	/* animation-delay: 10s; */
+	/* animation-duration: 2s;
+	animation-timing-function: cubic-bezier(0.18, 0.9, 0.89, 0.12);
+	animation-direction: alternate-reverse; */
+	/* animation: animation-name(keyframe) duration timing-function delay direction; */
+	animation: bounce 2s cubic-bezier(0.18, 0.9, 0.89, 0.12) 3s alternate-reverse;
+}
+
+@keyframes bounce {
+	0%,
+	100% {
+		top: 0;
+	}
+	30% {
+		top: 40px;
+	}
+	70% {
+		top: 70px;
+	}
+}

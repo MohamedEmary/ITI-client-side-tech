@@ -1,0 +1,43 @@
+button:active {
+	background-color: red;
+}
+
+input:active {
+	background-color: red;
+}
+
+input:focus {
+	background-color: green;
+}
+
+a:visited {
+	color: red;
+}
+
+a:link {
+	color: green;
+}
+
+input:disabled {
+	background-color: purple;
+}
+
+input:enabled {
+	background-color: red;
+}
+
+input:checked {
+	accent-color: green;
+}
+
+div p:first-child {
+	background-color: red;
+}
+
+div p:last-child {
+	background-color: green;
+}
+
+div p:only-child {
+	background-color: purple;
+}

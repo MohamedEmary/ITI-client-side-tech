@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			svg {
+				border: 1px solid black;
+			}
+		</style>
+
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- 
+  rect -> for square or rectangle
+  line
+  circle
+  ellipse
+  -->
+		<!-- xml namespace -->
+		<!-- width="400" height="400" -->
+		<!-- 
+      change width and height of the svg container
+      divide board into that number used in width & height
+    -->
+		<!-- width="800"
+    height="800" -->
+		<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+			<line x1="10" y1="10" x2="10" y2="100" stroke="red" stroke-width="3" />
+
+			<line x1="400" y1="400" x2="410" y2="410" stroke="red" stroke-width="3" />
+
+			<rect x="30" y="30" width="100" height="50" fill="blue" stroke="red" />
+
+			<circle
+				cx="200"
+				cy="200"
+				r="50"
+				stroke-width="3"
+				fill="red"
+				stroke="green" />
+
+			<ellipse
+				cx="100"
+				cy="100"
+				rx="100"
+				ry="50"
+				stroke-width="3"
+				fill="red"
+				stroke="green" />
+		</svg>
+
+		<!-- (SVG) Scalable vector graphics -->
+		<!-- Raster graphics -->
+	</body>
+</html>

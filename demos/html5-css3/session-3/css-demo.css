@@ -1,0 +1,42 @@
+.myDiv {
+	height: 300px;
+	width: 600px;
+	margin: auto;
+	margin-top: 100px;
+	/* transform: scale(1.2, 0.8); */
+	/* transform: scaleY(1.2); */
+	/* transform: scaleX(1.2); */
+	/* transform: translate(10px, 10px); */
+	/* transform: translateX(20px); */
+	/* transform: translateY(20px); */
+	/* transform: skewX(60deg); */
+	/* transform: skewY(30deg); */
+	/* transform: skew(30deg, 10deg); */
+	/* transform: rotate(70deg); */
+
+	/* background-color: red; */
+	/* background: linear-gradient(to left, blue, green); */
+	/* to top, to bottom, to left, and to right */
+	/* background: linear-gradient(20deg, blue 10%, green 70%, yellow 100%); */
+	/* background: radial-gradient(ellipse, blue 10%, green 70%, yellow 100%); */
+
+	background: repeating-radial-gradient(#e66465, #9198e5 20%);
+	/* background: linear-gradient(
+		red 0%,
+		orange 25%,
+		yellow 50%,
+		green 75%,
+		blue 100%
+	); */
+}
+
+.myDiv2 {
+	/* width: fit-content;
+	height: fit-content; */
+	height: 100px;
+	width: 100px;
+	background-color: red;
+	margin: auto;
+	margin-top: 100px;
+	/* overflow: scroll or hidden or visible; */
+}
