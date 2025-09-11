@@ -1,5 +1,9 @@
 ## `"use strict"`
 
+<!--
+https://gemini.google.com/app/5699db8392b14b85
+-->
+
 - Early JavaScript was very forgiving-easy to write, but easy to make mistakes!
 - Common issues:
     - Undeclared variables: `x = 5;`
